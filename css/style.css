@@ -501,6 +501,15 @@ mark,
   display: inline-block;
 }
 
+.springboot-icon {
+  background-image: url('https://spring.io/images/spring-logo-2023-76b5e3c19a17db3e01787f98d6e19148.svg');
+  background-size: cover;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+
 .list-inline-item:not(:last-child) {
   margin-right: 0.5rem;
 }
