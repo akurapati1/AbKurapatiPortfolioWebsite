@@ -1,0 +1,6 @@
+services:
+  portfolio:
+    build: .
+    ports: ["8787:8787"]
+    env_file: [server/.env]   # copy server/.env.example to server/.env and fill in SMTP + ANTHROPIC_API_KEY
+    restart: unless-stopped
