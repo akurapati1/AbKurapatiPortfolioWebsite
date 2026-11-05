@@ -1,605 +1,343 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="utf-8">
-    <title>My Portfolio - Abhilash Kurapati</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Abhilash Kurapati | AI Engineer &amp; Forward Deployed Engineer</title>
+  <meta name="description" content="AI Engineer building GCP-native agentic systems, RAG and MLOps. Forward Deployed Engineer mindset: I find the pain point in your workflow, ship AI into it, and stay until it works. Ask my AI, or message me directly.">
+  <meta name="theme-color" content="#070912">
+  <meta name="api-base" content="">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://akurapati1.github.io/AbKurapatiPortfolioWebsite/">
 
-    <!-- Favicon -->
-    <link  href="img\Screenshot 2025-03-01 192233.png" rel="icon">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Abhilash Kurapati | AI Engineer &amp; Forward Deployed Engineer">
+  <meta property="og:description" content="Agentic AI, RAG and MLOps on Google Cloud. 2–3 weeks of reporting work down to under a minute. Talk to my AI, or message me.">
+  <meta property="og:image" content="https://akurapati1.github.io/AbKurapatiPortfolioWebsite/assets/img/abhilash.jpg">
+  <meta name="twitter:card" content="summary">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <style>
-        /* Add bottom margin to Blog section */
-        #blog {
-            margin-bottom: 50px; /* Adjust this value as needed */
-        }
-
-        /* Add padding to the Gallery section */
-        #portfolio {
-            padding-top: 50px; /* Adjust this value as needed */
-        }
-
-        /* Ensure the Blog and Gallery sections don't overlap */
-        #blog, #portfolio {
-            min-height: 200px; /* Adjust this as necessary */
-        }
-
-        /* Clearfix for float elements */
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abhilash Kurapati",
+    "jobTitle": "AI Engineer",
+    "email": "mailto:abhilash.kurapati1301@gmail.com",
+    "telephone": "+1-617-256-8369",
+    "address": { "@type": "PostalAddress", "addressRegion": "NJ", "addressCountry": "US" },
+    "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Saint Louis University" }, { "@type": "CollegeOrUniversity", "name": "Chandigarh University" }],
+    "worksFor": { "@type": "Organization", "name": "Pozent Corporation" },
+    "knowsAbout": ["Agentic AI", "Retrieval-Augmented Generation", "Vertex AI", "Google ADK", "LangChain", "MLOps", "BigQuery", "GKE"],
+    "sameAs": ["https://github.com/akurapati1", "https://www.linkedin.com/in/kurapati-abhilash/"]
+  }
+  </script>
 </head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <canvas id="neural" aria-hidden="true"></canvas>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary">AB</span>Kurapati</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-            <div class="navbar-nav m-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#qualification" class="nav-item nav-link">Qualification</a>
-                <a href="#skill" class="nav-item nav-link">Skill</a>
-                <a href="#service" class="nav-item nav-link">Service</a>
-                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                <a href="#blog" class="nav-item nav-link">Blog</a>
-                <a href="#contact" class="nav-item nav-link">Contact</a>
-            </div>
-            <a href="https://drive.google.com/uc?export=download&id=1kIvkG9BQkVr1W9RXz7kXRDYJBfPku-Sp" class="btn btn-outline-primary d-none d-lg-block">Download CV</a>
-        </div>
-    </nav>
-    <!-- Navbar End -->
-
-
-    <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>        
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Abhilash Kurapati, home">
+        <span class="brand-mark"><svg viewBox="0 0 64 64" width="26" height="26"><g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"><path d="M14 50 32 12l18 38M21 37h22"/></g></svg></span>
+        <span class="brand-name">Abhilash<span class="dim"> Kurapati</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#work" data-spy="work">Work</a>
+        <a href="#fde" data-spy="fde">How I work</a>
+        <a href="#ask" data-spy="ask">Ask my AI</a>
+        <a href="#skills" data-spy="skills">Skills</a>
+        <a href="#experience" data-spy="experience">Experience</a>
+        <a href="#contact" data-spy="contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="paletteBtn" type="button" aria-label="Open command menu" title="Command menu (Ctrl/⌘ K)"><span class="kbd">⌘K</span></button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle light and dark theme"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+        <a class="btn btn-primary btn-sm nav-cta" href="#contact">Hire me</a>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
     </div>
-    <!-- Video Modal End -->
+  </header>
 
-
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img\profile.png" alt="">
-                </div>
-                <div class="col-lg-7 text-center text-lg-left">
-                    <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">Abhilash Kurapati</h1>
-                    <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
-                    <div class="typed-text d-none">Full-Stack Developer, Gen AI Application Developer, Springboot Developer</div>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                        <a href="https://drive.google.com/uc?export=download&id=1oAJn3T8z4_tWyrphOuaT0UgnUglAywpF" class="btn btn-outline-light mr-5">Download CV</a>
-                        <a href="https://github.com/akurapati1" class="btn btn-outline-light mr-5" target="_blank">GitHub</a>
-                        
-                    </div>
-                </div>
-            </div>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse"></span><span id="heroEyebrow">Open to AI Engineer &amp; Forward Deployed Engineer roles</span></p>
+          <h1 id="heroHeadline">I turn messy enterprise workflows into <span class="grad">agentic AI that ships.</span></h1>
+          <p class="typed-line"><span class="prompt">&gt;</span> <span id="typed" aria-live="off">Agentic AI systems, built to ship.</span><span class="caret"></span></p>
+          <p class="lede" id="heroSub">Associate AI Engineer on enterprise AI for Johnson &amp; Johnson. I build GCP-native agentic systems, RAG and MLOps pipelines, and I sit with the people who live the problem so the AI lands where it actually hurts.</p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" type="button" data-open-chat>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
+              Ask my AI
+            </button>
+            <a class="btn btn-ghost" href="#contact">Send a message</a>
+            <a class="btn btn-ghost" href="assets/Abhilash_Kurapati_AI_Engineer_Resume.pdf" download>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+              Resume
+            </a>
+          </div>
+          <div class="hero-links">
+            <a href="tel:+16172568369">+1 617-256-8369</a><span class="sep">·</span>
+            <a href="https://github.com/akurapati1" target="_blank" rel="noopener">GitHub</a><span class="sep">·</span>
+            <a href="https://www.linkedin.com/in/kurapati-abhilash/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
-    </div>
-    <!-- Header End -->
 
-
-    <!-- About Start -->
-    <div class="container-fluid py-5" id="about">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
-                <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
+        <aside class="hero-card" aria-label="Illustrative agent run">
+          <div class="term">
+            <div class="term-head">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="term-title">agent-run · medical-impact-report</span>
+              <span class="badge badge-live"><span class="pulse"></span>illustrative</span>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid rounded w-100" src="img/abhi.jpg" alt="">
-                </div>
-                <div class="col-lg-7">
-                    <h3 class="mb-4">Software Developer & GEN AI Enthusiast</h3>
-                    <p>I am currently pursuing a Master's degree in Computer Science at Saint Louis University, focusing on Software Development and Artificial Intelligent. I have a strong passion for exploring the fields of AI, machine learning, and full-stack web development. </p>
-                    <p>Also, Being a Full-Stack Developer for around 3 years, I have worked on several projects related Full-Stack Development in both industry and academia. I am skilled in Java Development, building RAG Applications, Springboot and designing RESTful APIs. </p>
-
-                    <div class="row mb-3">
-                        <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">Abhilash Kurapati</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Birthday: <span class="text-secondary">27 Novemebr 2001</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary">Masters</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Major: <span class="text-secondary">Computer Science</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+1 617-256-8369</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">abhilash@myjobemails.com</span></h6></div>
-                        
-                    </div>
-                    <a href="https://www.linkedin.com/in/abhilash-kurapati-36158a359/" target= "_blank" class="btn btn-outline-primary">Learn More</a>
-                </div>
+            <div class="term-body" id="termBody" aria-live="off"></div>
+            <div class="term-foot">
+              <div class="bar"><span id="termBar"></span></div>
+              <span class="mono dim" id="termClock">00:00</span>
             </div>
+          </div>
+          <div class="profile-chip">
+            <picture><source srcset="assets/img/abhilash.webp" type="image/webp"><img src="assets/img/abhilash.jpg" width="56" height="56" alt="Portrait of Abhilash Kurapati" loading="eager"></picture>
+            <div><strong>Abhilash Kurapati</strong><span>AI Engineer · New Jersey, USA</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="section tight" id="impact" aria-labelledby="impactTitle">
+      <div class="wrap">
+        <h2 class="sr-only" id="impactTitle">Impact in numbers</h2>
+        <div class="metrics" id="metrics"></div>
+      </div>
+    </section>
+
+    <!-- POSITIONING -->
+    <section class="section" id="about" aria-labelledby="aboutTitle">
+      <div class="wrap about-grid">
+        <figure class="portrait reveal">
+          <picture><source srcset="assets/img/abhilash.webp" type="image/webp"><img src="assets/img/abhilash.jpg" width="640" height="640" alt="Abhilash Kurapati" loading="lazy"></picture>
+          <figcaption><span class="pulse"></span> Based in New Jersey, USA</figcaption>
+        </figure>
+        <div class="reveal">
+          <p class="kicker">Positioning</p>
+          <h2 id="aboutTitle">Two hats. One goal: AI that people actually use.</h2>
+          <p class="lede" id="aboutIntro"></p>
+          <div class="summary" id="aboutSummary"></div>
+          <div class="hat-grid" id="hats"></div>
         </div>
-    </div>
-    <!-- About End -->
+      </div>
+    </section>
 
+    <!-- FLAGSHIP CASE STUDY -->
+    <section class="section" id="case" aria-labelledby="caseTitle">
+      <div class="wrap">
+        <div id="caseStudy" class="reveal"></div>
+      </div>
+    </section>
 
-    <!-- Qualification Start -->
-    <div class="container-fluid py-5" id="qualification">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Qualification</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Education & Expericence</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-12 mb-5">
-                    <h3 class="mb-4">My Education</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">M.S in Computer Science</h5>
-                            <p class="mb-2"><strong>Saint Louis University</strong> | <small>Aug 2023 - May 2025</small></p>
-                            <p style="text-align: justify;">Pursuing a Master’s in Computer Science with a focus on Software Development, Machine Learning and Generative AI. Worked on Generative AI and Large Language Models along with different Full-Stack projects. Coursework includes Deep Learning, Intro to AI, Algorithms, Software Engineering, Computer Networks. Hands-on experience in Web Development using different Tech Stacks(MERN, Java, Python etc.,). 
-
-                            </p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">B.E in Electronics & Communication</h5>
-                            <p class="mb-2"><strong>Chandigarh University</strong> | <small>Aug 2019 - June 2023</small></p>
-                            <p style="text-align: justify;">Specialized in Embedded Systems, IoT, and Robotics. Interned at HighRadius as an AI Full-Stack Developer, worked on RaspBerry pi, Arduino beased projects, also developed my Coding and Development skills by working on some small web development projects. Strong foundation in software development, Robotics, and embedded technologies.</p>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-12">
-                    <h3 class="mb-4">My Expericence</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Full-Stack Developer</h5>
-                            <p class="mb-2"><strong>Adobe</strong> | <small>Aug 2024 - Present</small></p>
-                            <p style="text-align: justify;"> As a Full Stack Developer at Adobe (08/2024 – Present, Remote), I led the development of a high-performance front-end using React and Redux, improving load times by 9% and enhancing user experience. I engineered a scalable microservices architecture with Java (Spring Boot), J2EE, and Spring Cloud, enabling modular deployments and efficient service management. By integrating Hibernate with MySQL, I boosted query performance by 30% and ensured 99.9% transactional consistency. I containerized services using Docker and implemented automated CI/CD pipelines for seamless deployments. Leveraging AWS (EC2, S3, Lambda), I optimized cost-efficiency by 30%, improved performance by 25%, and reduced downtime by 15%. Additionally, I enhanced data retrieval speed by 40% using Redis and integrated MongoDB to support large-scale unstructured data, increasing responsiveness by 50% and supporting 30% more concurrent users.</p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Full-Stack Developer</h5>
-                            <p class="mb-2"><strong>Genpact</strong> | <small>Mar 2021 - Jul 2023</small></p>
-                            <p style="text-align: justify;">
-                                Aa a Full-Stack Developer at Genpact, I designed scalable microservices-based RESTful APIs using Java, Spring Boot, and Spring Cloud, reducing response times by 20% and enhancing system resilience with circuit breakers and service meshes. I improved data persistence by 30% through Hibernate optimization, JDBC tuning, and MySQL enhancements like indexing, partitioning, and replication. I automated CI/CD pipelines with Jenkins, Maven, and Docker, cutting deployment time by 40%, and used Kubernetes for zero-downtime deployments via canary and blue-green strategies. I implemented secure authentication (OAuth 2.0, JWT, SAML) and enforced RBAC and ABAC for robust endpoint security. By managing multi-node Kubernetes clusters with advanced networking and security features, I improved scalability and fault tolerance by 30% and reduced downtime by 25%. I also led comprehensive testing with JUnit, Mockito, and Selenium, decreasing production defects by 25%. Optimizing client-server interactions with RESTful APIs and JavaScript frameworks, I achieved a 15% performance boost using server-side rendering and PWA features.
-                                </p>
-                        </div>
-                        
-                        
-                    </div>
-                </div>
-            </div>
+    <!-- PROJECTS -->
+    <section class="section" id="work" aria-labelledby="workTitle">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Selected work</p>
+          <h2 id="workTitle">Systems I've built, and why they matter.</h2>
+          <p class="lede">Each one started with a real pain point. Open any card for the problem, how it works, and the stack.</p>
         </div>
-    </div>
-    <!-- Qualification End -->
+        <div class="filters reveal" id="projectFilters" role="tablist" aria-label="Filter projects"></div>
+        <div class="projects" id="projects"></div>
+        <div class="lab reveal" id="lab"></div>
+      </div>
+    </section>
 
-
-    <!-- Skill Start -->
-    <div class="container-fluid py-5" id="skill">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Skills</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Skills</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Spring Boot </h6>
-                            <h6 class="font-weight-bold"></h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">React Js</h6>
-                            <h6 class="font-weight-bold"></h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Java</h6>
-                            <h6 class="font-weight-bold"></h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">DSA</h6>
-                            <h6 class="font-weight-bold"></h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Generative AI</h6>
-                            <h6 class="font-weight-bold"></h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Django</h6>
-                            <h6 class="font-weight-bold"></h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- FDE -->
+    <section class="section" id="fde" aria-labelledby="fdeTitle">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Forward Deployed Engineering</p>
+          <h2 id="fdeTitle">I find the pain, put AI exactly there, and stay until it works.</h2>
+          <p class="lede" id="fdeIntro"></p>
         </div>
-    </div>
-    <!-- Skill End -->
+        <ol class="steps reveal" id="fdeSteps"></ol>
+        <div class="step-detail reveal" id="stepDetail" aria-live="polite"></div>
 
+        <div class="strengths reveal" id="fdeStrengths"></div>
 
-    <!-- Services Start -->
-    <div class="container-fluid pt-5" id="service">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Service</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Expertise</h1>
+        <div class="lab-card reveal" id="patternLab">
+          <div class="lab-head">
+            <div>
+              <p class="kicker">Interactive</p>
+              <h3>Workflow explorer: pain point → AI → human gate</h3>
+              <p class="muted">Pick a type of workflow. Every pattern here maps to something I've actually shipped.</p>
             </div>
-            <div class="row pb-3">
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-laptop-code service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">SpringBoot</h4>
-                    </div>
-                    <p style="text-align: justify;">Spring Boot is one of my preferred frameworks for building scalable and robust Java-based applications. I have worked on a Cab Booking Application (YourRide) and a Linked-in Social Media application (connectU) using Springboot.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-laptop-code service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Web Development</h4>
-                    </div>
-                    <p style="text-align: justify;">I worked on building several web applications using diffenrent tech stacks and frameworks including Django, Springboot, ReactJS, Java, Shiny(R), MERN and PostGreSQL which gave me the cofidence to learn and adapt new tech stacks in short period.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-edit service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">AI ChatBots</h4>
-                    </div>
-                    <p style="text-align: justify;">I specialize in building AI chatbots and RAG applications, leveraging neural networks (PyTorch), SQL-driven AI agents, and Generative AI. I explore agentic AI and contribute to open-source projects, while sharing insights through technical blogs on Hashnode.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-laptop-code service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Django</h4>
-                    </div>
-                    <p style="text-align: justify;">I have been practicing Django for a while now and also developed a full-pledged discord like chat room application called "StudyBuddy". I also learnt some important concepts of computer networks while working on this project.</p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fa fa-2x fa-edit service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">RAG Applications</h4>
-                    </div>
-                    <p style="text-align: justify;">I develop RAG applications that enhance chatbot responses by integrating generative AI with database retrieval. My experience includes optimizing knowledge-based AI systems, implementing retrieval pipelines, and improving contextual accuracy for more reliable outputs. </p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fab fa-2x fa-android service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">GEN AI Tools and Agents</h4>
-                    </div>
-                    <p style="text-align: justify;">I work with Generative AI tools and agents, building intelligent systems that process prompts, generate contextual responses, and interact with databases for dynamic outputs. My experience includes developing AI agents that integrate retrieval mechanisms, optimize response generation, and enhance user interactions through advanced AI models.</p>
-                </div>
-            </div>
+          </div>
+          <div class="chips" id="patternChips" role="tablist" aria-label="Workflow patterns"></div>
+          <div class="pattern" id="patternView" aria-live="polite"></div>
         </div>
-    </div>
-    <!-- Services End -->
+      </div>
+    </section>
 
-
-    <!-- Portfolio Start -->
-    <div class="container-fluid pt-5 pb-3 mb-5" id="portfolio">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Projects</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center mb-2">
-                    <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">SpringBoot</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Django</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">MERN</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fourth">AI Chat Bots</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fifth">Open Source</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img\Screenshot 2025-03-28 135256.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="https://github.com/akurapati1/Uber_backEnd_Dev_App" target="_blank">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <h5 class="mb-1">GoRide</h5>
-                        <p style="text-align: justify;" class="mb-0 text-muted"><b>Tech stack: </b>SpringBoot, MVC, Spring Security, Hibernate, Mockito</p>
-                        <p> ----------------------</p>
-                        <p style="text-align: justify;" class="mb-0 text-muted">Developed a scalable backend system for a cab booking platform using Spring Boot. The application supports user and driver registration, ride booking, and payment processing. Leveraging Spring Web for RESTful APIs and Spring Data JPA with Hibernate for database management, the system ensures smooth interaction between components. Integrated PostGreSQL for persistent storage and Swagger for interactive API documentation.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img\Screenshot 2025-03-28 232903.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="https://github.com/akurapati1/LinkedIn_Backend_Dev_App" target="_blank">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <h5 class="mb-1">We Connect (Under Development)</h5>
-                        <p style="text-align: justify;" class="mb-0 text-muted"><b>Tech stack: </b>SpringBoot, Kafka, Microservice Architecture, Kubernetes</p>
-                        <p> ----------------------</p>
-                        <p style="text-align: justify;" class="mb-0 text-muted">Designed and implemented the backend architecture for WeConnect, a professional networking platform inspired by LinkedIn. Built scalable microservices using Spring Boot, enabling features like user profiles, connections, posts, and messaging. Integrated Apache Kafka for real-time communication and event-driven processing. Containerized services using Docker and orchestrated deployment with Kubernetes to ensure high availability and fault tolerance.
-
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img\Screenshot 2025-03-28 235244.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="https://github.com/akurapati1/StudyBuddyUsingDjango" target="_blank">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <h5 class="mb-1">Study Buddy</h5>
-                        <p style="text-align: justify;" class="mb-0 text-muted"><b>Tech stack: </b>Python, HTML, Django, JavaScript, MVT Architecture</p>
-                        <p> ----------------------</p>
-                        <p style="text-align: justify;" class="mb-0 text-muted">Built a real-time discussion platform where users can create and join chat rooms centered around various topics. Implemented user authentication, room management, and team-based collaboration features with MVT Architecture. Designed intuitive UI for seamless navigation and dynamic interaction within chat rooms. I will be deploying this application soon and make it available for everyone to use fro free.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img\Screenshot 2025-03-28 234508.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="https://github.com/akurapati1/EasyBudgetProductionRepo" target="_blank" >
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <h5 class="mb-1">Easy Budget</h5>
-                        <p style="text-align: justify;" class="mb-0 text-muted"><b>Tech stack: </b>MERN Stack</p>
-                        <p> ----------------------</p>
-                        <p style="text-align: justify;" class="mb-0 text-muted">EasyBudgetProductionRepo is a full-stack web application designed to assist users in managing their budgets and savings goals. The application utilizes React for the frontend and Node.js with Express for the backend, while MongoDB serves as the database for storing user data, budgets, and savings objectives.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fifth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img\Screenshot 2025-03-29 000347.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="https://github.com/oss-slu/MeltShiny" target="_blank">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <h5 class="mb-1">MeltShiny</h5>
-                        <p style="text-align: justify;" class="mb-0 text-muted"><b>Tech stack: </b>R, Shiny, MeltR, Docker</p>
-                        <p> ----------------------</p>
-                        <p style="text-align: justify;" class="mb-0 text-muted">MeltShiny is an open-source application developed to modernize the analysis of DNA absorbance melting curves, facilitating the extraction of thermodynamic parameters related to nucleic acid folding. It addresses the limitations of the legacy MeltWin software by offering cross-platform compatibility and an intuitive graphical user interface (GUI). I Have been the tech lead for MeltShiny since Jan 2025. </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img\Screenshot 2025-03-29 001024.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="https://share.streamlit.io/user/akurapati1" target="_blank">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <h5 class="mb-1">Gen AI ChatBots</h5>
-                        <p style="text-align: justify;" class="mb-0 text-muted"><b>Tech stack: </b> Python, Streamlit, LLMs, OpenAI, Groq, HiggingFace APIs</p>
-                        <p> ----------------------</p>
-                        <p style="text-align: justify;" class="mb-0 text-muted">Developed a diverse suite of interactive AI applications using Streamlit, focusing on natural language processing, deep learning, and machine learning. These bots demonstrate practical applications of modern AI models in real-world tasks such as prediction, classification, Q&A, summarization, and conversation. </p>
-                    </div>
-                </div>
-                
-</div>
-            </div>
+    <!-- ASK MY AI -->
+    <section class="section" id="ask" aria-labelledby="askTitle">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">AI built into this site</p>
+          <h2 id="askTitle">Don't read my resume. Interview it.</h2>
+          <p class="lede">An agent grounded in my verified profile answers your questions, honestly compares me against a job description, and runs a mini discovery session on <em>your</em> workflow. <span class="mode-note" id="modeNote"></span></p>
         </div>
-    </div>
-    <!-- Portfolio End -->
 
+        <div class="ai-hub reveal">
+          <div class="tabs" role="tablist" aria-label="AI tools">
+            <button class="tab is-active" role="tab" aria-selected="true" data-tab="chat" id="tab-chat" aria-controls="panel-chat">Chat with my AI</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="fit" id="tab-fit" aria-controls="panel-fit">Job-fit check</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="discover" id="tab-discover" aria-controls="panel-discover">Discovery brief</button>
+          </div>
 
-    
+          <div class="panel is-active" role="tabpanel" id="panel-chat" aria-labelledby="tab-chat">
+            <div class="chat" id="chatInline"></div>
+          </div>
 
-    <!-- Blog Start -->
-    <div class="container-fluid pt-5" id="blog">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Blog</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Latest Blog</h1>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img\Screenshot 2025-03-26 182841.png" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1">26</h4>
-                            <small class="text-white text-uppercase">Mar</small>
-                        </div>
-                    </div>
-                    <h5 class="font-weight-medium mb-4">Roadmap to Learn Springboot from 0 to 100</h5>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="https://roadmapforspringbootbyab.hashnode.dev/roadmap-to-master-spring-boot" target="_blank">Read More</a>
-                </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="position-relative mb-4">
-                        <img class="img-fluid rounded w-100" src="img\Screenshot 2025-03-29 234522.png" alt="">
-                        <div class="blog-date">
-                            <h4 class="font-weight-bold mb-n1">28</h4>
-                            <small class="text-white text-uppercase">Feb</small>
-                        </div>
-                    </div>
-                    <h5 class="font-weight-medium mb-4">Only Two Courses You Need to Master Gen AI</h5>
-                    <a class="btn btn-sm btn-outline-primary py-2" href="https://recommended-courses-for-genai-and-statistics-for-ai.hashnode.dev/two-courses-that-can-kick-start-your-ai-and-genai-journey" target="_blank">Read More</a>
-                </div>
-                
-            </div>
+          <div class="panel" role="tabpanel" id="panel-fit" aria-labelledby="tab-fit" hidden>
+            <form class="tool-form" id="fitForm">
+              <label for="fitInput">Paste a job description. You'll get an <strong>honest</strong> match: evidence, and gaps.</label>
+              <textarea id="fitInput" rows="7" maxlength="9000" placeholder="Paste the role description here…"></textarea>
+              <div class="tool-actions">
+                <button class="btn btn-primary" type="submit">Check the fit</button>
+                <button class="btn btn-ghost" type="button" id="fitSample">Use a sample FDE job description</button>
+                <span class="status" id="fitStatus" role="status"></span>
+              </div>
+            </form>
+            <div class="result" id="fitResult" aria-live="polite"></div>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-discover" aria-labelledby="tab-discover" hidden>
+            <form class="tool-form" id="discoverForm">
+              <label for="discoverInput">Describe a workflow that hurts: what's slow, manual, or error-prone? I'll respond like I would in a first customer call.</label>
+              <textarea id="discoverInput" rows="5" maxlength="3000" placeholder="e.g. Our analysts spend about three weeks assembling compliance reports from PDFs and spreadsheets. Every draft needs heavy manual checking…"></textarea>
+              <div class="tool-actions">
+                <button class="btn btn-primary" type="submit">Generate discovery brief</button>
+                <button class="btn btn-ghost" type="button" id="discoverSample">Try an example</button>
+                <span class="status" id="discoverStatus" role="status"></span>
+              </div>
+            </form>
+            <div class="result" id="discoverResult" aria-live="polite"></div>
+          </div>
         </div>
-    </div>
-    <!-- Blog End -->
+      </div>
+    </section>
 
-
-    <!-- Contact Start -->
-    <div class="container-fluid py-5" id="contact">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contact-form text-center">
-                        <div id="success"></div>
-                        <form id="contactForm" onsubmit="sendEmail(); return false;">
-                            <div class="form-row">
-                                <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" name="name" id="name" placeholder="Your Name"
-                                        required="required" data-validation-required-message="Please enter your name" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" name="email" id="email" placeholder="Your Email"
-                                        required="required" data-validation-required-message="Please enter your email" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control p-4" name="subject" id="subject" placeholder="Subject"
-                                    required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" name="message" id="message" placeholder="Message"
-                                    required="required" data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Send Message</button>
-                            </div>
-                        </form>
-                        
-                    </div>
-                </div>
-            </div>
+    <!-- SKILLS -->
+    <section class="section" id="skills" aria-labelledby="skillsTitle">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Toolbox</p>
+          <h2 id="skillsTitle">Skills, with honest depth.</h2>
+          <p class="lede" id="skillsNote"></p>
         </div>
-    </div>
-    <!-- Contact End -->
-<!-- EmailJS SDK -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    (function () {
-        emailjs.init("oFUVNWFX6nw5EElnu"); // Replace with your EmailJS Public Key
-    })();
+        <div class="legend reveal" id="skillLegend"></div>
+        <div class="skills" id="skills-grid"></div>
+      </div>
+    </section>
 
-    function sendEmail() {
-        emailjs.sendForm("service_563hf68", "template_uygct2e", "#contactForm")
-            .then(function (response) {
-                alert("Message sent successfully!");
-                document.getElementById("contactForm").reset();
-            }, function (error) {
-                alert("Failed to send message. Please try again later.");
-                console.log("EmailJS Error:", error);
-            });
-    }
-</script>
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white mt-0 py-5 px-sm-0 px-md-5">
-        <div class="container text-center py-5">
-            <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-light btn-social mr-2" href="https://hashnode.com/@abkurapati" target="_blank"><i class="fas fa-pen-nib"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="https://github.com/akurapati1" target="_blank"><i class="fab fa-github"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/404/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social" href="https://www.instagram.com/abkurapati/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-            
-            <p class="m-0"> <a class="text-white font-weight-bold" href="#">Go to Top</a>.   Designed by <a class="text-white font-weight-bold" href="#">Abhilash Kurapati</a>
-            </p>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience" aria-labelledby="expTitle">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Experience</p>
+          <h2 id="expTitle">From campus lab to production AI.</h2>
         </div>
+        <div class="timeline" id="timeline"></div>
+        <div class="edu reveal" id="education"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact" aria-labelledby="contactTitle">
+      <div class="wrap contact-grid">
+        <div class="reveal">
+          <p class="kicker">Let's talk</p>
+          <h2 id="contactTitle">Hiring for AI or Forward Deployed Engineering? Message me, or call.</h2>
+          <p class="lede">The form below sends an email straight to my inbox. Prefer a call? Tap the number, or leave yours and a time that suits you and I'll ring you back.</p>
+          <ul class="contact-list">
+            <li><a class="contact-row" href="mailto:abhilash.kurapati1301@gmail.com"><span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><strong>Email</strong><small>abhilash.kurapati1301@gmail.com</small></span></a></li>
+            <li><a class="contact-row" href="tel:+16172568369"><span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span><strong>Call</strong><small>+1 617-256-8369</small></span></a></li>
+            <li><a class="contact-row" href="https://www.linkedin.com/in/kurapati-abhilash/" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></span><span><strong>LinkedIn</strong><small>/in/kurapati-abhilash</small></span></a></li>
+            <li><a class="contact-row" href="https://github.com/akurapati1" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></span><span><strong>GitHub</strong><small>github.com/akurapati1</small></span></a></li>
+          </ul>
+          <div class="note-card"><strong>Rather ask first?</strong> <button class="link-btn" type="button" data-open-chat>Ask my AI</button>: it can answer most questions instantly and hand you off to the form.</div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="seg" role="radiogroup" aria-label="What is this about?" id="topicSeg">
+            <label><input type="radio" name="topic" value="hiring" checked><span>Hiring</span></label>
+            <label><input type="radio" name="topic" value="project"><span>Project</span></label>
+            <label><input type="radio" name="topic" value="collaboration"><span>Collaborate</span></label>
+            <label><input type="radio" name="topic" value="callback"><span>Call me back</span></label>
+            <label><input type="radio" name="topic" value="question"><span>Question</span></label>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="cName">Your name <em>*</em></label><input id="cName" name="name" autocomplete="name" maxlength="100" required><small class="err" data-err="name"></small></div>
+            <div class="field"><label for="cEmail">Email <em>*</em></label><input id="cEmail" name="email" type="email" autocomplete="email" maxlength="200" required><small class="err" data-err="email"></small></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="cCompany">Company</label><input id="cCompany" name="company" autocomplete="organization" maxlength="120"></div>
+            <div class="field"><label for="cPhone">Phone <em class="req-callback" hidden>*</em></label><input id="cPhone" name="phone" type="tel" autocomplete="tel" maxlength="40"><small class="err" data-err="phone"></small></div>
+          </div>
+          <div class="field" id="timeField" hidden><label for="cTime">Best time to call (include time zone)</label><input id="cTime" name="preferredTime" maxlength="120" placeholder="e.g. Weekdays 2–5pm ET"></div>
+          <div class="field"><label for="cMessage">Message <em>*</em></label><textarea id="cMessage" name="message" rows="6" maxlength="5000" required placeholder="What are you working on, and how can I help?"></textarea><small class="err" data-err="message"></small></div>
+          <div class="field brief-attach" id="briefAttach" hidden><label class="check"><input type="checkbox" id="briefCheck" checked> <span>Attach the discovery brief I generated</span></label></div>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit" id="contactSubmit"><span class="lbl">Send message</span></button>
+            <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+          </div>
+          <p class="fine">Sent by email to Abhilash. Your details are used only to reply. <span id="mailMode"></span></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Abhilash Kurapati · Built with vanilla JS, a tiny Node API, and Claude.</span>
+      <span class="footer-links"><a href="#top">Back to top ↑</a><a href="https://github.com/akurapati1/AbKurapatiPortfolioWebsite" target="_blank" rel="noopener">Source</a></span>
     </div>
-    <!-- Footer End -->
+  </footer>
 
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+  <!-- Floating chat launcher + drawer (shares conversation with the inline chat) -->
+  <button class="fab" id="fab" type="button" data-open-chat aria-label="Ask my AI">
+    <span class="fab-ring"></span>
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
+    <span class="fab-label">Ask my AI</span>
+  </button>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Chat with Abhilash's AI">
+    <div class="drawer-head"><strong>Abhilash's AI</strong><button class="icon-btn" id="drawerClose" type="button" aria-label="Close chat">✕</button></div>
+    <div class="chat" id="chatDrawer"></div>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+  <!-- Command palette -->
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command menu" hidden>
+    <div class="palette-box">
+      <input id="paletteInput" type="text" placeholder="Jump to a section, or ask the AI anything…" autocomplete="off" aria-label="Search commands">
+      <ul id="paletteList" role="listbox"></ul>
+      <div class="palette-foot"><span><span class="kbd">↑↓</span> navigate</span><span><span class="kbd">↵</span> select</span><span><span class="kbd">esc</span> close</span></div>
+    </div>
+  </div>
 
+  <noscript><div class="noscript"><p><strong>Abhilash Kurapati</strong>, AI Engineer &amp; Forward Deployed Engineer. GCP-native agentic AI, RAG, MLOps. Cut medical report generation at Johnson &amp; Johnson from 2–3 weeks to under a minute.</p><p>Email <a href="mailto:abhilash.kurapati1301@gmail.com">abhilash.kurapati1301@gmail.com</a> · <a href="tel:+16172568369">+1 617-256-8369</a> · <a href="https://github.com/akurapati1">GitHub</a> · <a href="assets/Abhilash_Kurapati_AI_Engineer_Resume.pdf">Resume (PDF)</a></p><p>Enable JavaScript to use the interactive sections and the AI assistant.</p></div></noscript>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
-
 </html>

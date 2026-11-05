@@ -1,0 +1,14 @@
+{
+  "name": "abhilash-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "AI-engineer portfolio: static site + small Node API (SMTP contact, streaming Claude agent).",
+  "scripts": {
+    "install:server": "npm --prefix server ci",
+    "start": "npm --prefix server start",
+    "dev": "npm --prefix server run dev",
+    "test": "npm --prefix server test",
+    "serve:static": "python3 -m http.server 8080"
+  },
+  "license": "MIT"
+}

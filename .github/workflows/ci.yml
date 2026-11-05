@@ -1,0 +1,18 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: server/package-lock.json }
+      - run: npm --prefix server ci
+      - run: npm --prefix server test
+      - name: Syntax-check browser modules
+        run: |
+          for f in $(find assets/js -name '*.js'); do cp "$f" /tmp/check.mjs && node --check /tmp/check.mjs || { echo "syntax error in $f"; exit 1; }; done
+      - name: Validate profile.json
+        run: node -e "JSON.parse(require('fs').readFileSync('data/profile.json','utf8')); console.log('profile.json ok')"

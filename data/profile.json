@@ -1,0 +1,459 @@
+{
+  "meta": {
+    "siteTitle": "Abhilash Kurapati | AI Engineer & Forward Deployed Engineer",
+    "siteDescription": "AI Engineer building GCP-native agentic systems, RAG and MLOps. Forward Deployed Engineer mindset: I find the pain point in your workflow, ship AI into it, and stay until it works. Ask my AI, or message me directly.",
+    "siteUrl": "https://akurapati1.github.io/AbKurapatiPortfolioWebsite/",
+    "lastReviewed": "2026-11"
+  },
+  "identity": {
+    "name": "Abhilash Kurapati",
+    "shortName": "Abhilash",
+    "title": "AI Engineer",
+    "secondaryTitle": "Forward Deployed Engineer (in the making)",
+    "location": "New Jersey, USA",
+    "email": "abhilash.kurapati1301@gmail.com",
+    "phone": "+1 617-256-8369",
+    "phoneHref": "+16172568369",
+    "linkedin": "https://www.linkedin.com/in/kurapati-abhilash/",
+    "github": "https://github.com/akurapati1",
+    "resume": "assets/Abhilash_Kurapati_AI_Engineer_Resume.pdf",
+    "photo": "assets/img/abhilash.jpg",
+    "photoWebp": "assets/img/abhilash.webp"
+  },
+  "hero": {
+    "eyebrow": "Open to AI Engineer & Forward Deployed Engineer roles",
+    "headline": "I turn messy enterprise workflows into agentic AI that ships.",
+    "subhead": "Associate AI Engineer on enterprise AI for Johnson & Johnson. I build GCP-native agentic systems, RAG and MLOps pipelines, and I sit with the people who live the problem so the AI lands where it actually hurts.",
+    "rotating": [
+      "Agentic AI systems, built to ship.",
+      "RAG · LangGraph · Google ADK · MCP",
+      "Vertex AI · GKE · BigQuery · MLOps",
+      "Human-in-the-loop, trustworthy AI",
+      "Discovery → deployment → adoption"
+    ]
+  },
+  "metrics": [
+    { "id": "turnaround", "kind": "text", "from": "2–3 weeks", "to": "< 1 min", "label": "report generation time", "caption": "Medical Impact Assessment reports · Johnson & Johnson (via Pozent)", "color": "#34d399" },
+    { "id": "records", "kind": "count", "value": 100000, "suffix": "+", "label": "records through automated ML/AI pipelines", "caption": "Pub/Sub → Dataflow → Dataproc/BigQuery, across 2 environments", "color": "#8b5cf6" },
+    { "id": "steps", "kind": "count", "value": 5, "suffix": "+", "label": "orchestrated agentic steps", "caption": "Retrieval, reasoning, generation, validation, report assembly", "color": "#22d3ee" },
+    { "id": "sources", "kind": "count", "value": 20, "suffix": "+", "label": "sources synthesized per research run", "caption": "Agentic Market Researcher: news, SEC/EDGAR, Reddit", "color": "#f59e0b" },
+    { "id": "hours", "kind": "text", "from": "3+ hrs", "to": "1 click", "label": "manual market research", "caption": "Agentic Market Researcher", "color": "#f472b6" },
+    { "id": "prs", "kind": "count", "value": 30, "suffix": "+", "label": "pull requests reviewed as tech lead", "caption": "Open Source with SLU · guided 4 undergraduates through 10+ sprints", "color": "#60a5fa" }
+  ],
+  "summary": [
+    "I'm an AI/ML engineer with 2+ years of experience building GCP-native agentic AI systems, LLM-powered applications, RAG workflows and automated ML pipelines. I work across the whole stack that makes AI trustworthy in production: Vertex AI, LangChain, Google ADK, BigQuery, Dataflow, Pub/Sub, GKE and CI/CD.",
+    "At Johnson & Johnson (through Pozent) I architected an agentic system that took medical report generation from 2–3 weeks to under a minute, with human reviewers in the loop and their edits feeding back into the system. That mix of hard engineering and close work with the people who use it is exactly what I want to do full time as a Forward Deployed Engineer."
+  ],
+  "positioning": {
+    "title": "Two hats. One goal: AI that people actually use.",
+    "intro": "Most AI demos die at the handoff to real work. I care about the part after the demo: the messy data, the reviewers, the compliance gates, the person who has to trust the output on Monday morning.",
+    "cards": [
+      {
+        "id": "engineer",
+        "icon": "cpu",
+        "title": "AI Engineer",
+        "tagline": "Build it properly",
+        "points": [
+          "Multi-agent systems with Google ADK, LangChain / LangGraph and Claude",
+          "RAG over structured, semi-structured and unstructured data",
+          "Vertex AI Pipelines, Cloud Composer, GKE, CI/CD, model monitoring",
+          "FastAPI / Flask inference services with versioned prompts, models and config"
+        ]
+      },
+      {
+        "id": "fde",
+        "icon": "handshake",
+        "title": "Forward Deployed Engineer",
+        "tagline": "Land it where it hurts",
+        "points": [
+          "Talk to stakeholders, name the real pain point, and agree what 'done' looks like",
+          "Map the workflow and decide where AI helps, and where a human must stay",
+          "Embed with users, ship in small slices, and iterate on their feedback",
+          "Explain trade-offs in plain language to technical and non-technical people"
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "id": "pozent",
+      "role": "Associate AI Engineer",
+      "org": "Pozent Corporation",
+      "client": "Johnson & Johnson",
+      "period": "Aug 2025 – Present",
+      "location": "Piscataway, NJ",
+      "current": true,
+      "summary": "Enterprise AI for a regulated healthcare client: turning slow, manual medical reporting into an automated, reviewable agentic workflow.",
+      "bullets": [
+        "Architected a GCP-native agentic AI system for Medical Impact Assessment reporting, automating PDF and Word generation across structured, semi-structured and unstructured data sources inside secure cloud workflows.",
+        "Built AI workflows on Vertex AI, LangChain and Google ADK, orchestrating 5+ agentic steps for retrieval, reasoning, content generation, validation and report assembly at scale.",
+        "Built automated ML/AI pipelines with Vertex AI Pipelines and Cloud Composer (Airflow): ingestion (Pub/Sub, Dataflow), transformation (Dataproc, BigQuery) and model evaluation across 2 environments, processing 100,000+ records and 2 Quickbase integrations.",
+        "Implemented GCP MLOps: containerized FastAPI/Flask inference services on GKE via CI/CD (Cloud Build / GitHub Actions), with model, prompt and config versioning for reproducible releases and rollbacks.",
+        "Set up production model monitoring with Cloud Logging/Monitoring and BigQuery dashboards tracking latency, errors and output quality, with alerts for drift and degradation.",
+        "Integrated human-in-the-loop review and RLHF-inspired feedback loops, using reviewer edits and approvals as labeled feedback to refine prompts and retrieval and drive periodic re-evaluation, cutting report generation from 2–3 weeks to under 1 minute."
+      ],
+      "stack": ["Vertex AI", "Google ADK", "LangChain", "Cloud Composer", "Pub/Sub", "Dataflow", "Dataproc", "BigQuery", "GKE", "FastAPI", "Cloud Build", "GitHub Actions"]
+    },
+    {
+      "id": "slu",
+      "role": "Technical Lead",
+      "org": "Open Source with SLU",
+      "client": "Saint Louis University",
+      "period": "Jan 2025 – Aug 2025",
+      "location": "Saint Louis, MO",
+      "current": false,
+      "summary": "Led a student engineering team turning legacy scientific tools into a modern analytics platform.",
+      "bullets": [
+        "Led development of MeltShiny, transforming 2 legacy research tools into a cross-platform analytics platform for automated DNA/RNA thermodynamic modeling and reproducible scientific analysis at scale.",
+        "Engineered reactive R pipelines with MeltR to process melt-curve datasets, apply nonlinear curve fitting, detect outliers and extract 4 ML-ready thermodynamic features for downstream analytics.",
+        "Implemented Dockerized deployment and GitHub Actions CI/CD, improving reproducibility across contributors; guided 4 undergraduates through 10+ sprints and reviewed 30+ pull requests."
+      ],
+      "stack": ["R", "Shiny", "MeltR", "Docker", "GitHub Actions"]
+    },
+    {
+      "id": "highradius",
+      "role": "AI Full-Stack Intern",
+      "org": "HighRadius",
+      "client": "",
+      "period": "Jan 2022 – Apr 2022",
+      "location": "Remote, India",
+      "current": false,
+      "summary": "First production ML: forecasting late payments for collections teams.",
+      "bullets": [
+        "Trained and compared supervised ML models (Linear/Ridge Regression, Random Forest, Gradient Boosting) on 50,000+ historical invoices to forecast payment delays and DSO trends for collections.",
+        "Engineered 15+ features and tuned scikit-learn models via GridSearchCV and cross-validation, tracking MAE/RMSE against baselines.",
+        "Deployed the model as a Python/Flask prediction service for the Spring Boot backend, with periodic retraining on new data; containerized with Docker (98% CI/CD success) and tested with PyTest (80%+ coverage)."
+      ],
+      "stack": ["Python", "Flask", "scikit-learn", "Spring Boot", "MySQL", "Docker", "PyTest"]
+    }
+  ],
+  "education": [
+    { "school": "Saint Louis University", "degree": "Master of Science in Computer Science", "grade": "CGPA 3.94 / 4.0", "period": "Aug 2023 – May 2025", "place": "Missouri, United States" },
+    { "school": "Chandigarh University", "degree": "Bachelor of Engineering, Electronics & Communication Engineering", "grade": "CGPA 8.11 / 10", "period": "Aug 2019 – Jun 2023", "place": "Punjab, India" }
+  ],
+  "caseStudy": {
+    "id": "jnj-impact",
+    "eyebrow": "Flagship · Production",
+    "title": "Agentic Medical Impact Assessment, in under a minute",
+    "client": "Johnson & Johnson (via Pozent)",
+    "problem": "Medical Impact Assessment reports took 2–3 weeks to produce. Evidence lived in structured tables, semi-structured documents and unstructured PDFs, and everything had to be reviewable and auditable.",
+    "approach": "A GCP-native agentic system: ingestion pipelines make the data model-ready, a multi-step agent graph retrieves, reasons and drafts, validators check the output, and a human reviewer approves. Their edits become labeled feedback that improves the next draft.",
+    "result": "Report generation dropped from 2–3 weeks to under a minute, with reviewers still in control.",
+    "confidentialityNote": "Client-confidential details are intentionally omitted. This is a faithful, generalized view of the architecture.",
+    "pipeline": [
+      { "id": "ingest", "label": "Ingest", "tech": "Pub/Sub · Dataflow", "lane": "data", "detail": "Event-driven ingestion from source systems into the platform. Streaming and batch paths feed the same downstream tables." },
+      { "id": "transform", "label": "Transform", "tech": "Dataproc · BigQuery", "lane": "data", "detail": "Structured, semi-structured and unstructured inputs are normalized and made model-ready. Orchestrated by Cloud Composer (Airflow) across 2 environments, 100,000+ records." },
+      { "id": "retrieve", "label": "Retrieve", "tech": "RAG · Vertex AI", "lane": "agents", "detail": "An agent step pulls the right evidence for each report section instead of stuffing everything into one prompt." },
+      { "id": "reason", "label": "Reason & draft", "tech": "Google ADK · LangChain", "lane": "agents", "detail": "5+ agentic steps handle reasoning, content generation and section assembly, each with a narrow, testable job." },
+      { "id": "validate", "label": "Validate", "tech": "Rules · checks", "lane": "agents", "detail": "Automated validation catches structural and content problems before a human ever sees the draft." },
+      { "id": "review", "label": "Human review", "tech": "HITL · RLHF-inspired", "lane": "trust", "detail": "Reviewers edit and approve. Their changes are stored as labeled feedback used to refine prompts and retrieval and to trigger periodic re-evaluation." },
+      { "id": "deliver", "label": "Deliver", "tech": "PDF · Word", "lane": "trust", "detail": "Final reports are generated as PDF and Word documents, and integrated with Quickbase (2 integrations)." },
+      { "id": "operate", "label": "Operate", "tech": "GKE · CI/CD · Monitoring", "lane": "ops", "detail": "FastAPI/Flask services run on GKE via Cloud Build / GitHub Actions with versioned models, prompts and config. Cloud Logging/Monitoring and BigQuery dashboards track latency, errors and output quality." }
+    ]
+  },
+  "projects": [
+    {
+      "id": "market-researcher",
+      "name": "Agentic Market Researcher",
+      "tagline": "Multi-agent research platform: 3+ hours of analyst work in one click.",
+      "category": "agents",
+      "featured": true,
+      "year": "2026",
+      "status": "Personal project",
+      "problem": "Market research means reading dozens of news items, SEC/EDGAR filings and social threads, then reconciling them. It's slow, and easy to do inconsistently.",
+      "how": [
+        "Asynchronous Python ETL pulls 20+ sources (news, SEC/EDGAR, Reddit) in parallel.",
+        "Claude Haiku agents do the cheap, wide work (triage, extraction); Claude Sonnet agents do the synthesis.",
+        "Prompt caching keeps repeated context cheap; weighted ranking puts the most credible signals first.",
+        "Structured outputs and one-click insights replace manual note-taking."
+      ],
+      "impact": "Replaces 3+ hours of manual research with a single click.",
+      "stack": ["Claude API", "Claude Haiku", "Claude Sonnet", "Prompt caching", "Multi-agent reasoning", "FastAPI", "Async Python"],
+      "links": [{ "label": "GitHub", "url": "https://github.com/akurapati1/MarketResearcherAgentic" }]
+    },
+    {
+      "id": "insurance-rag",
+      "name": "Insurance RAG Assistant",
+      "tagline": "Upload insurance PDFs, ask in plain English, get answers grounded in the documents.",
+      "category": "rag",
+      "featured": true,
+      "year": "2026",
+      "status": "Personal project · open source",
+      "problem": "Policy documents are long, dense and full of exceptions. People need the deductible or exclusion for their situation, quickly, with proof.",
+      "how": [
+        "PyMuPDF extracts text; sentence-aware chunking (800 chars, 150 overlap) preserves context.",
+        "Chunks are embedded locally with all-MiniLM-L6-v2 and stored in a persistent ChromaDB with filename metadata.",
+        "Questions are embedded, matched by cosine similarity (top-6), and passed to an LLM that answers with source citations.",
+        "FastAPI backend with upload / list / delete / chat / debug-search endpoints; React + Vite + Tailwind frontend; Docker Compose for one-command deploys."
+      ],
+      "impact": "A complete, deployable full-stack RAG app: ingestion, retrieval, grounded answers and a document manager.",
+      "stack": ["FastAPI", "ChromaDB", "sentence-transformers", "React", "Vite", "Tailwind", "OpenRouter", "Docker"],
+      "links": [{ "label": "GitHub", "url": "https://github.com/akurapati1/Agentic_Rag_For_Insurance" }]
+    },
+    {
+      "id": "ml-pipeline-gcp",
+      "name": "End-to-End ML Pipeline on GCP",
+      "tagline": "Ingest → features → train → evaluate → register → deploy, with drift-triggered retraining.",
+      "category": "mlops",
+      "featured": true,
+      "year": "2026",
+      "status": "Personal project",
+      "problem": "Models rot. Without automation and monitoring, nobody notices until the output is wrong.",
+      "how": [
+        "A Vertex AI Pipelines workflow ingests data from BigQuery, engineers features, trains and evaluates candidates, then registers and deploys the best one.",
+        "Compares Logistic Regression, Random Forest and XGBoost.",
+        "The winner is served through FastAPI on a Vertex endpoint / GKE.",
+        "Drift monitoring triggers the pipeline to re-run when metrics or drift cross a threshold."
+      ],
+      "impact": "A hands-off train → deploy → monitor → retrain loop.",
+      "stack": ["Vertex AI Pipelines", "BigQuery", "XGBoost", "scikit-learn", "FastAPI", "GKE"],
+      "links": []
+    },
+    {
+      "id": "sql-agent",
+      "name": "AI SQL Data Retrieval Agent",
+      "tagline": "Ask your database questions in English.",
+      "category": "agents",
+      "featured": true,
+      "year": "2025",
+      "status": "Graded project",
+      "problem": "Business users have questions; the answers sit in SQL tables they can't query.",
+      "how": [
+        "A 3-stage LangChain workflow: generate the SQL, execute it, then format the result for humans.",
+        "Handles 5+ query types across 10+ PostgreSQL tables.",
+        "FastAPI backend with a React visualization interface."
+      ],
+      "impact": "Natural-language access to 10+ tables without writing SQL.",
+      "stack": ["LangChain", "OpenAI", "PostgreSQL", "FastAPI", "React"],
+      "links": [{ "label": "Earlier prototype", "url": "https://github.com/akurapati1/ChatWithSQLDB" }]
+    },
+    {
+      "id": "ask-my-ai",
+      "name": "“Ask my AI” on my GitHub profile",
+      "tagline": "A recruiter-facing agent that runs entirely on GitHub Issues and Actions.",
+      "category": "agents",
+      "featured": false,
+      "year": "2026",
+      "status": "Open source",
+      "problem": "Resumes can't answer follow-up questions.",
+      "how": [
+        "A visitor opens a pre-filled issue; a GitHub Action calls a free LLM grounded in a curated knowledge base and replies on the issue.",
+        "Strict grounding rules, skill-level honesty (core / working / familiar), per-user and global daily caps, and sanitized output.",
+        "A 'job-fit check' compares a pasted job description against the knowledge base and reports evidence and gaps, honestly."
+      ],
+      "impact": "The same idea powers the AI on this site, with a richer UI.",
+      "stack": ["GitHub Actions", "Python", "OpenRouter", "Prompt-injection defenses"],
+      "links": [{ "label": "GitHub", "url": "https://github.com/akurapati1/akurapati1" }]
+    },
+    {
+      "id": "meltshiny",
+      "name": "MeltShiny",
+      "tagline": "Cross-platform DNA/RNA thermodynamic analytics for researchers.",
+      "category": "data",
+      "featured": false,
+      "year": "2025",
+      "status": "Open Source with SLU · tech lead",
+      "problem": "Two legacy research tools made reproducible thermodynamic analysis hard.",
+      "how": [
+        "Reactive R pipelines (MeltR) process melt curves, fit nonlinear models and flag outliers.",
+        "Extracts 4 ML-ready thermodynamic features.",
+        "Dockerized, with GitHub Actions CI/CD; led a team of 4 undergraduates through 10+ sprints and reviewed 30+ pull requests."
+      ],
+      "impact": "Two tools merged into one reproducible platform.",
+      "stack": ["R", "Shiny", "MeltR", "Docker", "GitHub Actions"],
+      "links": [{ "label": "GitHub", "url": "https://github.com/oss-slu/MeltShiny" }]
+    },
+    {
+      "id": "nim-multirag",
+      "name": "NVIDIA NIM Multi-document RAG",
+      "tagline": "Multi-document retrieval and answers on NVIDIA NIM models.",
+      "category": "rag",
+      "featured": false,
+      "year": "2025",
+      "status": "Deployed demo",
+      "problem": "Answering across several documents needs retrieval that scales beyond one PDF.",
+      "how": [
+        "Multi-document RAG pipeline built on NVIDIA NIM (NeMo Inference Microservices).",
+        "Streamlit front end, deployed publicly."
+      ],
+      "impact": "A live multi-document RAG demo.",
+      "stack": ["NVIDIA NIM", "RAG", "Streamlit", "Python"],
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/akurapati1/NvidiaNIMmultiRAG" },
+        { "label": "Live demo", "url": "https://nvidianimmultirag-lnhephhb7y8fsf55by53nr.streamlit.app/" }
+      ]
+    },
+    {
+      "id": "field-manuals",
+      "name": "LLM Systems Field Manuals",
+      "tagline": "Open guides: six production LLM patterns on Google Cloud, RAG field notes, retrieval trade-offs.",
+      "category": "knowledge",
+      "featured": false,
+      "year": "2026",
+      "status": "Open source",
+      "problem": "Teams adopt LLMs faster than they learn the trade-offs.",
+      "how": [
+        "LLMOps-Guide: 'Six LLM patterns' with runnable starters on Google Cloud.",
+        "RAG_QnA: chunking, embeddings, vector databases, retrieval techniques, multi-tenancy and evaluation.",
+        "LLM_tradeoffs: how vector retrieval finds things (HNSW / IVF), speed-accuracy-memory trade-offs, agentic frameworks, which LLM for which job."
+      ],
+      "impact": "Teaching what I build, which is also how I explain AI to clients.",
+      "stack": ["LLMOps", "RAG", "Vector search", "Google Cloud"],
+      "links": [
+        { "label": "LLMOps-Guide", "url": "https://github.com/akurapati1/LLMOps-Guide" },
+        { "label": "RAG notes", "url": "https://github.com/akurapati1/RAG_QnA" },
+        { "label": "LLM trade-offs", "url": "https://github.com/akurapati1/LLM_tradeoffs" }
+      ]
+    }
+  ],
+  "lab": {
+    "title": "The lab: experiments that built the instincts",
+    "intro": "Smaller public repos where I learned frameworks by building with them.",
+    "items": [
+      { "name": "CrewAIpractice", "note": "Multi-agent crews", "url": "https://github.com/akurapati1/CrewAIpractice" },
+      { "name": "Tools-and-agents", "note": "LangChain tools & agents", "url": "https://github.com/akurapati1/Tools-and-agents" },
+      { "name": "MultiRagwithAstraDB", "note": "Multi-RAG with a vector DB", "url": "https://github.com/akurapati1/MultiRagwithAstraDB" },
+      { "name": "Langchain_Ollama_FastAPI", "note": "Local LLM behind an API", "url": "https://github.com/akurapati1/Langchain_Ollama_FastAPI" },
+      { "name": "FinancedomainLLM", "note": "Domain-specific LLM", "url": "https://github.com/akurapati1/FinancedomainLLM" },
+      { "name": "MultiLanguageCodeAssistant", "note": "Code assistant", "url": "https://github.com/akurapati1/MultiLanguageCodeAssistant" },
+      { "name": "textSummarizationBot", "note": "Summarization", "url": "https://github.com/akurapati1/textSummarizationBot" },
+      { "name": "LinkedInPostGenerationBot", "note": "Content generation", "url": "https://github.com/akurapati1/LinkedInPostGenerationBot" },
+      { "name": "RAGdocumentQ-A", "note": "Document Q&A", "url": "https://github.com/akurapati1/RAGdocumentQ-A" },
+      { "name": "StockMarketSentimentAnalysis", "note": "NLP on markets", "url": "https://github.com/akurapati1/StockMarketSentimentAnalysis" },
+      { "name": "ANN-Classification-for-Churn-Prediction", "note": "Deep learning", "url": "https://github.com/akurapati1/ANN-Classification-for-Churn-Prediction" },
+      { "name": "PersonalPdfEditor", "note": "Private, in-browser PDF editor", "url": "https://github.com/akurapati1/PersonalPdfEditor" }
+    ]
+  },
+  "fde": {
+    "title": "How I work with customers",
+    "intro": "A Forward Deployed Engineer is an engineer who goes to where the problem is. These are the habits I bring to that job. Try them live below.",
+    "steps": [
+      { "id": "discover", "n": "01", "title": "Discover", "icon": "search", "summary": "Listen first. Get the real problem, not the requested solution.", "detail": "I run short, structured conversations with the people who do the work: what takes the time, where it goes wrong, who signs off, what happens when it's late. I ask for a real example and walk through it step by step.", "output": "A one-page problem statement everyone agrees with." },
+      { "id": "diagnose", "n": "02", "title": "Diagnose", "icon": "target", "summary": "Find the pain points and where AI actually helps.", "detail": "I map the workflow end to end and mark each step: repetitive and rule-like (automate), language-heavy (LLM), judgment-heavy (keep a human, support them), risky (add a gate). Not everything should be AI, and saying that early builds trust.", "output": "A workflow map with candidate AI insertion points ranked by value and risk." },
+      { "id": "design", "n": "03", "title": "Design", "icon": "layers", "summary": "Pick the thinnest slice that proves value and keeps people in control.", "detail": "Data access, evaluation criteria, human-in-the-loop review, failure behaviour, cost and latency. I explain the trade-offs in plain language so decisions get made quickly.", "output": "A scoped plan with success metrics and a review process." },
+      { "id": "deploy", "n": "04", "title": "Deploy", "icon": "rocket", "summary": "Ship into the real environment, with CI/CD and monitoring from day one.", "detail": "Containerized services, versioned prompts and models, rollbacks, dashboards for latency, errors and output quality. The same practices I used on GKE and Vertex AI at J&J.", "output": "A working system in the customer's environment." },
+      { "id": "embed", "n": "05", "title": "Embed & iterate", "icon": "refresh", "summary": "Stay close. Turn user feedback into the next release.", "detail": "Reviewer edits and approvals become labeled feedback that improves prompts and retrieval. I keep checking what users actually do, then widen the scope once trust is earned.", "output": "Adoption, a feedback loop, and the next workflow to tackle." }
+    ],
+    "strengths": [
+      { "title": "Clear communicator", "text": "I explain models, trade-offs and limitations in plain language, to engineers, domain experts and executives alike." },
+      { "title": "Pain-point detective", "text": "I ask about the last time it went wrong, not about features. The cost is usually hiding in handoffs and rework." },
+      { "title": "Honest about limits", "text": "I'd rather tell you AI is the wrong tool for a step than ship something nobody trusts." },
+      { "title": "Team leader", "text": "I led a student team through 10+ sprints and reviewed 30+ pull requests, which means giving direction and feedback clearly." }
+    ],
+    "patterns": [
+      {
+        "id": "reporting",
+        "name": "Reporting & document generation",
+        "keywords": ["report", "reports", "document", "documents", "pdf", "word", "write", "draft", "summary", "summaries", "compliance", "audit", "submission", "template", "assessment", "weeks"],
+        "painSigns": ["Reports take days or weeks to assemble", "Evidence is scattered across systems and files", "Every draft needs heavy manual formatting and checking"],
+        "aiFit": ["Retrieve the right evidence per section", "Draft section-by-section with narrow agents", "Validate structure and content automatically", "Generate PDF/Word output"],
+        "humanGate": "Reviewer approves or edits; edits are captured as feedback to improve the next draft.",
+        "proof": { "project": "jnj-impact", "claim": "2–3 weeks → under 1 minute at Johnson & Johnson" }
+      },
+      {
+        "id": "doc-qa",
+        "name": "Knowledge & document Q&A",
+        "keywords": ["policy", "policies", "contract", "contracts", "manual", "manuals", "faq", "knowledge", "wiki", "search", "questions", "support", "helpdesk", "insurance", "handbook", "sop", "pdfs", "lookup"],
+        "painSigns": ["People ask the same questions repeatedly", "Answers are buried in long PDFs", "Nobody trusts search results"],
+        "aiFit": ["RAG over the document set", "Answers with citations to the source passage", "Say 'I don't know' when the documents don't cover it"],
+        "humanGate": "Citations let users verify; low-confidence answers route to a person.",
+        "proof": { "project": "insurance-rag", "claim": "Full-stack RAG with cited answers over uploaded PDFs" }
+      },
+      {
+        "id": "research",
+        "name": "Research & signal synthesis",
+        "keywords": ["research", "market", "competitor", "competitive", "news", "monitor", "monitoring", "analyst", "intelligence", "sources", "trends", "briefing", "reading", "scan", "diligence"],
+        "painSigns": ["Analysts spend hours reading before they can think", "Coverage is inconsistent", "Insights arrive after the decision"],
+        "aiFit": ["Parallel ingestion of many sources", "Cheap models triage, strong models synthesize", "Weighted ranking by source credibility"],
+        "humanGate": "Analyst reviews the synthesis and the cited sources before acting.",
+        "proof": { "project": "market-researcher", "claim": "20+ sources synthesized; 3+ hours → one click" }
+      },
+      {
+        "id": "data-access",
+        "name": "Ask-your-data (natural-language analytics)",
+        "keywords": ["sql", "database", "dashboard", "dashboards", "analytics", "bi", "query", "queries", "tables", "data", "metrics", "excel", "spreadsheet", "ad-hoc", "adhoc", "warehouse"],
+        "painSigns": ["Business users wait on analysts for simple questions", "A backlog of ad-hoc data requests", "Dashboards can't answer the follow-up"],
+        "aiFit": ["Generate → execute → explain pipeline", "Schema-aware prompting", "Read-only access and query validation"],
+        "humanGate": "Show the generated query; read-only credentials; analysts review new query patterns.",
+        "proof": { "project": "sql-agent", "claim": "5+ query types across 10+ PostgreSQL tables in plain English" }
+      },
+      {
+        "id": "prediction",
+        "name": "Forecasting & predictive operations",
+        "keywords": ["forecast", "forecasting", "predict", "prediction", "churn", "risk", "scoring", "late", "delay", "delays", "payments", "collections", "demand", "anomaly", "anomalies", "retraining", "drift", "model", "models"],
+        "painSigns": ["Decisions made on gut feel or stale spreadsheets", "A model exists but nobody monitors it", "Manual re-training"],
+        "aiFit": ["Feature pipelines on the warehouse", "Compare simple baselines to boosted models", "Automated train → evaluate → register → deploy", "Drift-triggered retraining"],
+        "humanGate": "Thresholds and alerts route anomalies to an owner; models are versioned for rollback.",
+        "proof": { "project": "ml-pipeline-gcp", "claim": "Vertex AI Pipelines with drift-triggered retraining; earlier, forecasting payment delays on 50,000+ invoices at HighRadius" }
+      },
+      {
+        "id": "intake",
+        "name": "Intake, triage & routing",
+        "keywords": ["email", "emails", "tickets", "ticket", "intake", "triage", "route", "routing", "classify", "classification", "inbox", "forms", "requests", "queue", "backlog", "onboarding"],
+        "painSigns": ["Humans read and sort every incoming item", "Inconsistent categorization", "Slow first response"],
+        "aiFit": ["Classify and extract structured fields", "Route to the right queue", "Draft first responses for review"],
+        "humanGate": "Low-confidence items go to people; corrections feed an evaluation set.",
+        "proof": { "project": "jnj-impact", "claim": "Same agentic building blocks: structured extraction, validation and human review at scale" }
+      }
+    ],
+    "discoveryQuestions": [
+      "Walk me through the last time this went wrong, step by step.",
+      "Who touches this work, and who signs off on it?",
+      "How long does it take today, and how long should it take?",
+      "What data is involved, and where does it live?",
+      "What would make you not trust an AI's answer?",
+      "What does 'done well' look like in numbers you already track?"
+    ]
+  },
+  "skills": {
+    "levelsNote": "core = shipped in real work · working = used and comfortable · familiar = exposure",
+    "categories": [
+      { "id": "ai", "name": "Agentic & Generative AI", "color": "#a78bfa", "skills": [
+        { "name": "Agentic AI", "level": "core" }, { "name": "Multi-Agent Reasoning", "level": "core" }, { "name": "LangGraph", "level": "core" }, { "name": "LangChain", "level": "core" },
+        { "name": "Google ADK", "level": "core" }, { "name": "RAG Pipelines", "level": "core" }, { "name": "MCP Servers", "level": "core" }, { "name": "Claude API", "level": "core" },
+        { "name": "Prompt Engineering", "level": "core" }, { "name": "Prompt Caching", "level": "core" }, { "name": "Human-in-the-Loop", "level": "core" },
+        { "name": "OpenAI API", "level": "working" }, { "name": "RLHF-style Feedback Loops", "level": "working" } ] },
+      { "id": "cloud", "name": "Cloud, DevOps & MLOps", "color": "#60a5fa", "skills": [
+        { "name": "Google Cloud", "level": "core" }, { "name": "Vertex AI", "level": "core" }, { "name": "Vertex AI Pipelines", "level": "core" }, { "name": "Cloud Composer (Airflow)", "level": "core" },
+        { "name": "GKE", "level": "core" }, { "name": "Kubernetes", "level": "core" }, { "name": "Docker", "level": "core" }, { "name": "CI/CD (Cloud Build)", "level": "core" },
+        { "name": "Model Monitoring", "level": "core" }, { "name": "GitHub Actions", "level": "working" }, { "name": "Bash", "level": "working" }, { "name": "Jenkins", "level": "familiar" } ] },
+      { "id": "data", "name": "Data Platforms", "color": "#fb923c", "skills": [
+        { "name": "BigQuery", "level": "core" }, { "name": "Dataflow", "level": "core" }, { "name": "Pub/Sub", "level": "core" }, { "name": "PostgreSQL", "level": "core" },
+        { "name": "Dataproc", "level": "working" }, { "name": "MongoDB", "level": "familiar" }, { "name": "MySQL", "level": "familiar" }, { "name": "Firestore", "level": "familiar" }, { "name": "Redis", "level": "familiar" } ] },
+      { "id": "backend", "name": "AI Application Backend", "color": "#4ade80", "skills": [
+        { "name": "FastAPI", "level": "core" }, { "name": "Flask", "level": "core" }, { "name": "REST APIs", "level": "core" }, { "name": "Async Python ETL", "level": "core" },
+        { "name": "React", "level": "working" }, { "name": "Node.js", "level": "familiar" }, { "name": "Spring Boot", "level": "familiar" }, { "name": "Kafka", "level": "familiar" } ] },
+      { "id": "ml", "name": "Machine Learning", "color": "#f472b6", "skills": [
+        { "name": "scikit-learn", "level": "core" }, { "name": "XGBoost", "level": "core" }, { "name": "Regression & Random Forest", "level": "core" }, { "name": "Time-series Forecasting", "level": "working" },
+        { "name": "PyTorch", "level": "working" }, { "name": "TensorFlow", "level": "working" }, { "name": "pandas", "level": "working" }, { "name": "AutoML", "level": "working" }, { "name": "OpenCV", "level": "familiar" } ] },
+      { "id": "lang", "name": "Languages", "color": "#2dd4bf", "skills": [
+        { "name": "Python", "level": "core" }, { "name": "SQL", "level": "core" }, { "name": "JavaScript", "level": "working" }, { "name": "TypeScript", "level": "working" }, { "name": "R", "level": "working" }, { "name": "Java", "level": "familiar" } ] }
+    ]
+  },
+  "assistant": {
+    "name": "Abhilash's AI",
+    "greeting": "Hi! I'm an AI that knows Abhilash's resume, projects and way of working. Ask me anything, paste a job description for an honest fit check, or tell me about a workflow problem.",
+    "suggestions": [
+      "What did Abhilash build at Johnson & Johnson?",
+      "Show me the best agentic AI work",
+      "How does Abhilash approach a new customer problem?",
+      "Which GCP services is Abhilash strongest in?",
+      "Is Abhilash a fit for a Forward Deployed Engineer role?",
+      "How can I contact Abhilash?"
+    ],
+    "unknowns": [
+      "work authorization or visa status",
+      "salary or compensation expectations",
+      "exact start date or notice period",
+      "relocation preferences",
+      "anything about private repositories or confidential client details"
+    ]
+  },
+  "faq": [
+    { "q": "What roles is Abhilash looking for?", "a": "AI Engineer roles and Forward Deployed Engineer roles, where Abhilash can combine hands-on agentic AI / RAG / MLOps engineering with direct work alongside customers." },
+    { "q": "What is Abhilash's strongest technical area?", "a": "Production agentic AI on Google Cloud: Vertex AI, Google ADK, LangChain, RAG pipelines, BigQuery/Dataflow/Pub/Sub data pipelines, and GKE-based MLOps with CI/CD and monitoring." },
+    { "q": "How does Abhilash keep AI output trustworthy?", "a": "Human-in-the-loop review, reviewer edits captured as labeled feedback (RLHF-inspired), automated validation inside the pipeline, and production monitoring of latency, errors and output quality with drift alerts." },
+    { "q": "What is Abhilash's education?", "a": "M.S. in Computer Science from Saint Louis University (CGPA 3.94/4.0, 2023–2025) and B.E. in Electronics & Communication Engineering from Chandigarh University (CGPA 8.11/10, 2019–2023)." },
+    { "q": "How can someone reach Abhilash?", "a": "Email abhilash.kurapati1301@gmail.com, call +1 617-256-8369, message through the contact form on this site, or connect on LinkedIn." }
+  ]
+}
