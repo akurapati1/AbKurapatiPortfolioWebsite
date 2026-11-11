@@ -96,6 +96,12 @@ export function buildChunks(p) {
       `Pain signs: ${j(pt.painSigns)}. Where AI fits: ${j(pt.aiFit)}. Human gate: ${pt.humanGate} Proof: ${pt.proof.claim}.`,
       { ref: pt.proof.project, tags: "workflow pain point ai insertion customer" });
 
+  for (const r of p.atlas?.items || [])
+    add(`repo-${r.name}`, "project", `Repo: ${r.name}`,
+      `${r.description} Category: ${r.category}. Stack: ${j(r.stack)}. ` +
+        (r.visibility === "private" ? "Private repository (source available on request)." : `Public repository: ${r.url}`),
+      { ref: r.name, tags: `repository github project ${r.category} ${r.core ? "highlight" : ""}` });
+
   for (const q of p.faq) add(`faq-${q.q}`, "faq", q.q, q.a, { tags: "faq" });
 
   return chunks;
@@ -194,7 +200,7 @@ export function answerOffline(question, profile, index) {
   if (intent === "jnj") {
     hits = [...index.chunks.filter((c) => c.id === "case-study" || c.id === "exp-pozent")].map((chunk) => ({ chunk, score: 1 }));
   } else if (intent === "projects") {
-    hits = ["case-study", "proj-market-researcher", "proj-insurance-rag", "proj-ml-pipeline-gcp"]
+    hits = ["case-study", "proj-market-researcher", "proj-insurance-rag", "proj-chat-abt", "proj-murmur"]
       .map((cid) => index.chunks.find((c) => c.id === cid)).filter(Boolean).map((chunk) => ({ chunk, score: 1 }));
   } else if (intent === "fde" && /forward deployed|fde|approach|customer|client/i.test(q)) {
     hits = ["fde-overview", "fde-str-Clear communicator", "fde-str-Pain-point detective"]

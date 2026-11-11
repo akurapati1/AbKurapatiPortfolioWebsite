@@ -2,10 +2,12 @@ import { $, h } from "./util.js";
 import { probe, net } from "./api.js";
 import { createBrain } from "./brain.js";
 import { createChatStore, mountChat } from "./modules/chat.js";
-import { renderHero, renderMetrics, renderAbout, renderCaseStudy, renderProjects, renderFDE, renderSkills, renderExperience } from "./modules/sections.js";
+import { renderHero, renderMetrics, renderAbout, renderCaseStudy, renderProjects, renderFDE, renderSkills, renderExperience, renderAtlas, renderOrbUI, startIdCard } from "./modules/sections.js";
+import { startAgentCore } from "./modules/agentcore.js";
+import { setupRipple, setupTilt, setupMagnetic, setupWarp, setupReveal } from "./modules/fx.js";
 import { setupFit, setupDiscover, setupTabs } from "./modules/aitools.js";
 import { setupContact } from "./modules/contact.js";
-import { startNeural, startReveal, startChrome, setupTheme, setupDrawer, setupPalette } from "./modules/effects.js";
+import { startNeural, startChrome, setupTheme, setupDrawer, setupPalette } from "./modules/effects.js";
 
 async function loadProfile() {
   const r = await fetch("data/profile.json", { cache: "no-cache" });
@@ -29,9 +31,20 @@ async function boot() {
 
   // Render everything that doesn't depend on the backend immediately.
   renderHero(profile); renderMetrics(profile); renderAbout(profile); renderCaseStudy(profile);
-  renderProjects(profile); renderFDE(profile); renderSkills(profile); renderExperience(profile);
-  const observeNew = startReveal();
-  observeNew?.();
+  renderProjects(profile); renderAtlas(profile); renderFDE(profile); renderSkills(profile); renderExperience(profile);
+  startIdCard();
+  setupReveal(); setupRipple(); setupTilt(); setupMagnetic(); setupWarp();
+
+  // The 3D agent: orbiting modules reveal what the site contains.
+  const holder = {};
+  const core = startAgentCore($("#agentCore"), profile.hero.orbit, { onSelect: (m, o) => holder.show?.(m, o) });
+  holder.show = renderOrbUI(profile, core);
+  if (core.selected >= 0) holder.show(profile.hero.orbit[core.selected], { auto: true });
+  setTimeout(() => $("#orbHint")?.classList.add("fade"), 6000);
+
+  // Scheduling link (set identity.scheduling.url in profile.json)
+  const sch = profile.identity.scheduling;
+  if (sch?.url) { const b = $("#scheduleBtn"); b.href = sch.url; b.textContent = sch.label || "Book a call"; b.hidden = false; }
 
   const brain = createBrain(profile);
   const contact = setupContact();

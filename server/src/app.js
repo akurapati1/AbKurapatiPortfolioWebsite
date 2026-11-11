@@ -3,6 +3,7 @@ import helmet from "helmet";
 import cors from "cors";
 import rateLimit, { ipKeyGenerator } from "express-rate-limit";
 import path from "node:path";
+import fs from "node:fs";
 import { chatSchema, contactSchema, discoverSchema, fitSchema, flattenErrors } from "./schemas.js";
 import { runChatAgent } from "./agent.js";
 import { answerOffline, assessFit, discoveryBrief, search } from "../../assets/js/shared/retrieval.js";
@@ -112,6 +113,11 @@ export function createApp({ config, mailer, llm, kb, logger = console }) {
       return res.json({ ok: true, delivered: true });
     }
 
+    if (config.mail.logPath) {
+      // Best effort: a failing disk must never block the email.
+      const { website, startedAt, ...record } = c;
+      fs.appendFile(config.mail.logPath, JSON.stringify({ at: new Date().toISOString(), ...record }) + "\n", (e) => e && logger.warn?.("message log failed", e.message));
+    }
     try {
       const out = await mailer.sendContact(c, { ip: req.ip });
       res.json({ ok: true, delivered: out.delivered, devMode: !out.delivered });

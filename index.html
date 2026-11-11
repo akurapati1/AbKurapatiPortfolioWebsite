@@ -13,8 +13,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Abhilash Kurapati | AI Engineer &amp; Forward Deployed Engineer">
   <meta property="og:description" content="Agentic AI, RAG and MLOps on Google Cloud. 2–3 weeks of reporting work down to under a minute. Talk to my AI, or message me.">
-  <meta property="og:image" content="https://akurapati1.github.io/AbKurapatiPortfolioWebsite/assets/img/abhilash.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://akurapati1.github.io/AbKurapatiPortfolioWebsite/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +52,7 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#work" data-spy="work">Work</a>
+        <a href="#atlas" data-spy="atlas">Repos</a>
         <a href="#fde" data-spy="fde">How I work</a>
         <a href="#ask" data-spy="ask">Ask my AI</a>
         <a href="#skills" data-spy="skills">Skills</a>
@@ -94,23 +95,13 @@
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Illustrative agent run">
-          <div class="term">
-            <div class="term-head">
-              <span class="dots"><i></i><i></i><i></i></span>
-              <span class="term-title">agent-run · medical-impact-report</span>
-              <span class="badge badge-live"><span class="pulse"></span>illustrative</span>
-            </div>
-            <div class="term-body" id="termBody" aria-live="off"></div>
-            <div class="term-foot">
-              <div class="bar"><span id="termBar"></span></div>
-              <span class="mono dim" id="termClock">00:00</span>
-            </div>
+        <aside class="hero-card" aria-label="Interactive AI agent core">
+          <div class="orb" id="orb">
+            <canvas id="agentCore" aria-label="Rotating 3D AI agent. Drag to rotate, click an orbiting module to learn more." role="img"></canvas>
+            <div class="orb-hint" id="orbHint"><span class="pulse"></span> drag to rotate · tap a module</div>
           </div>
-          <div class="profile-chip">
-            <picture><source srcset="assets/img/abhilash.webp" type="image/webp"><img src="assets/img/abhilash.jpg" width="56" height="56" alt="Portrait of Abhilash Kurapati" loading="eager"></picture>
-            <div><strong>Abhilash Kurapati</strong><span>AI Engineer · New Jersey, USA</span></div>
-          </div>
+          <div class="orb-panel" id="orbPanel" aria-live="polite"></div>
+          <div class="orb-chips" id="orbChips" role="tablist" aria-label="Agent modules"></div>
         </aside>
       </div>
     </section>
@@ -126,10 +117,18 @@
     <!-- POSITIONING -->
     <section class="section" id="about" aria-labelledby="aboutTitle">
       <div class="wrap about-grid">
-        <figure class="portrait reveal">
-          <picture><source srcset="assets/img/abhilash.webp" type="image/webp"><img src="assets/img/abhilash.jpg" width="640" height="640" alt="Abhilash Kurapati" loading="lazy"></picture>
-          <figcaption><span class="pulse"></span> Based in New Jersey, USA</figcaption>
-        </figure>
+        <div class="idcard reveal" id="idcard" data-tilt aria-label="Abhilash Kurapati, AI Engineer">
+          <div class="id-ring" aria-hidden="true"><i></i><i></i><i></i><span>AK</span></div>
+          <div class="id-name">Abhilash Kurapati</div>
+          <div class="id-role">AI Engineer · Forward Deployed Engineer</div>
+          <dl class="id-grid">
+            <div><dt>Base</dt><dd>New Jersey, USA</dd></div>
+            <div><dt>Focus</dt><dd>Agentic AI · RAG · MLOps</dd></div>
+            <div><dt>Cloud</dt><dd>Google Cloud</dd></div>
+            <div><dt>Status</dt><dd class="ok"><span class="pulse"></span> Open to roles</dd></div>
+          </dl>
+          <div class="id-code" aria-hidden="true"><span id="idTick">agent.status = "ready"</span></div>
+        </div>
         <div class="reveal">
           <p class="kicker">Positioning</p>
           <h2 id="aboutTitle">Two hats. One goal: AI that people actually use.</h2>
@@ -143,6 +142,21 @@
     <!-- FLAGSHIP CASE STUDY -->
     <section class="section" id="case" aria-labelledby="caseTitle">
       <div class="wrap">
+        <div class="case-term reveal">
+          <p class="kicker">Live run · illustrative</p>
+          <div class="term">
+            <div class="term-head">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="term-title">agent-run · medical-impact-report</span>
+              <span class="badge badge-live"><span class="pulse"></span>illustrative</span>
+            </div>
+            <div class="term-body" id="termBody" aria-live="off"></div>
+            <div class="term-foot">
+              <div class="bar"><span id="termBar"></span></div>
+              <span class="mono dim" id="termClock">00:00</span>
+            </div>
+          </div>
+        </div>
         <div id="caseStudy" class="reveal"></div>
       </div>
     </section>
@@ -157,7 +171,24 @@
         </div>
         <div class="filters reveal" id="projectFilters" role="tablist" aria-label="Filter projects"></div>
         <div class="projects" id="projects"></div>
-        <div class="lab reveal" id="lab"></div>
+      </div>
+    </section>
+
+    <!-- REPO ATLAS -->
+    <section class="section" id="atlas" aria-labelledby="atlasTitle">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Repo atlas</p>
+          <h2 id="atlasTitle">The full repo atlas</h2>
+          <p class="lede" id="atlasIntro"></p>
+        </div>
+        <div class="atlas-tools reveal">
+          <div class="search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="atlasSearch" type="search" placeholder="Search repos, stacks, ideas… (try “RAG” or “Docker”)" aria-label="Search repositories"></div>
+          <div class="chips" id="atlasChips" role="tablist" aria-label="Repository categories"></div>
+          <p class="atlas-count" id="atlasCount" aria-live="polite"></p>
+        </div>
+        <div class="atlas-grid" id="atlasGrid"></div>
+        <p class="fine atlas-note" id="atlasNote"></p>
       </div>
     </section>
 
@@ -275,6 +306,7 @@
             <li><a class="contact-row" href="https://www.linkedin.com/in/kurapati-abhilash/" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></span><span><strong>LinkedIn</strong><small>/in/kurapati-abhilash</small></span></a></li>
             <li><a class="contact-row" href="https://github.com/akurapati1" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></span><span><strong>GitHub</strong><small>github.com/akurapati1</small></span></a></li>
           </ul>
+          <a class="btn btn-primary schedule-btn" id="scheduleBtn" href="#" target="_blank" rel="noopener" hidden>Book a 20-minute intro call</a>
           <div class="note-card"><strong>Rather ask first?</strong> <button class="link-btn" type="button" data-open-chat>Ask my AI</button>: it can answer most questions instantly and hand you off to the form.</div>
         </div>
 

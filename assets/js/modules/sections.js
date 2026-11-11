@@ -1,6 +1,6 @@
 import { $, $$, h, svg, ICONS, onVisible, reducedMotion, sleep } from "../util.js";
 
-const CAT_LABEL = { all: "All", agents: "Agents", rag: "RAG", mlops: "MLOps", data: "Data & science", knowledge: "Open knowledge" };
+const CAT_LABEL = { all: "All", agents: "Agents", rag: "RAG", mlops: "MLOps", data: "Data & science", knowledge: "Open knowledge", apps: "Apps" };
 
 /* ------------------------------------------------------------------ hero */
 export function renderHero(p) {
@@ -171,10 +171,6 @@ export function renderProjects(p) {
   grid.replaceChildren(...all);
   apply();
 
-  const lab = p.lab;
-  $("#lab").replaceChildren(
-    h("h3", {}, lab.title), h("p", {}, lab.intro),
-    h("div", { class: "lab-grid" }, lab.items.map((i) => h("a", { class: "lab-item", href: i.url, target: "_blank", rel: "noopener noreferrer" }, h("b", {}, i.name), h("span", {}, i.note)))));
 }
 
 /* ------------------------------------------------------------------ FDE */
@@ -240,4 +236,62 @@ export function renderExperience(p) {
       h("div", { class: "stack" }, e.stack.map((s) => h("span", {}, s))))));
   $("#education").replaceChildren(...p.education.map((s) =>
     h("div", { class: "edu-card" }, h("h4", {}, s.school), h("p", {}, s.degree), h("p", { class: "dim" }, `${s.period} · ${s.place}`), h("div", { class: "g" }, s.grade))));
+}
+
+/* ------------------------------------------------------------------ orb panel */
+export function renderOrbUI(p, core) {
+  const panel = $("#orbPanel"), chips = $("#orbChips");
+  const show = (m, { auto } = {}) => {
+    $$("button", chips).forEach((b) => { const on = b.dataset.id === m.id; b.classList.toggle("is-active", on); b.setAttribute("aria-selected", String(on)); });
+    panel.style.setProperty("--oc", m.color);
+    panel.replaceChildren(h("div", { class: "op-in" },
+      h("div", { class: "op-top" }, h("span", { class: "op-dot" }), h("span", { class: "op-label" }, m.label), auto ? h("span", { class: "op-auto" }, "auto-tour") : null),
+      h("h3", {}, m.title), h("p", {}, m.text),
+      h("div", { class: "op-foot" }, h("span", { class: "op-metric" }, m.metric),
+        h("button", { class: "btn btn-sm btn-ghost", type: "button", "data-warp": "", onclick: () => document.querySelector(m.target)?.scrollIntoView({ behavior: "smooth" }) }, "Take me there →"))));
+  };
+  chips.replaceChildren(...p.hero.orbit.map((m, i) => h("button", { type: "button", class: "chip", role: "tab", "data-id": m.id, style: `--oc:${m.color}`, onclick: () => { core.select(i); core.interact(); } }, m.label)));
+  return show;
+}
+
+/* ------------------------------------------------------------------ ID card */
+export function startIdCard() {
+  const el = $("#idTick"); if (!el) return;
+  const lines = ['agent.status = "ready"', 'agent.focus = ["agentic", "rag", "mlops"]', 'agent.cloud = "google-cloud"', 'agent.mode = "forward-deployed"', 'agent.open_to_roles = true'];
+  let i = 0;
+  if (reducedMotion()) return;
+  setInterval(() => { i = (i + 1) % lines.length; el.style.opacity = 0; setTimeout(() => { el.textContent = lines[i]; el.style.opacity = 1; }, 220); }, 2600);
+}
+
+/* ------------------------------------------------------------------ atlas */
+export function renderAtlas(p) {
+  const at = p.atlas, grid = $("#atlasGrid"), chips = $("#atlasChips"), search = $("#atlasSearch"), count = $("#atlasCount");
+  $("#atlasIntro").textContent = at.intro;
+  $("#atlasTitle").textContent = at.title; $("#atlasTitle").removeAttribute("data-split");
+  let cat = "all", q = "";
+  const catLabel = Object.fromEntries(at.categories.map((c) => [c.id, c.label]));
+  const cards = at.items.map((r) => {
+    const open = r.visibility === "public" && r.url;
+    const el = h(open ? "a" : "div", { class: `atlas-card${r.core ? " core" : ""}`, "data-cat": r.category, "data-q": `${r.name} ${r.description} ${r.stack.join(" ")} ${catLabel[r.category] || ""}`.toLowerCase(), ...(open ? { href: r.url, target: "_blank", rel: "noopener noreferrer" } : {}) },
+      h("div", { class: "ac-top" }, h("span", { class: "ac-cat" }, catLabel[r.category] || r.category),
+        r.visibility === "private" ? h("span", { class: "ac-priv", title: "Private repository" }, "private") : h("span", { class: "ac-go", "aria-hidden": "true", html: svg(ICONS.external, 15) })),
+      h("h3", {}, r.title || r.name.replace(/[-_]+/g, " ")), h("p", {}, r.description),
+      h("div", { class: "stack" }, r.stack.map((s) => h("span", {}, s))));
+    return el;
+  });
+  grid.replaceChildren(...cards);
+  const apply = () => {
+    let n = 0;
+    cards.forEach((el) => {
+      const ok = (cat === "all" || el.dataset.cat === cat) && (!q || q.split(/\s+/).every((w) => el.dataset.q.includes(w)));
+      el.hidden = !ok; if (ok) { n++; el.style.setProperty("--ai", Math.min(n, 14)); el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); }
+    });
+    count.textContent = `${n} of ${cards.length} projects`;
+    $$("button", chips).forEach((b) => { const on = b.dataset.cat === cat; b.classList.toggle("is-active", on); b.setAttribute("aria-selected", String(on)); });
+  };
+  chips.replaceChildren(...at.categories.map((c) => h("button", { type: "button", class: "chip", role: "tab", "data-cat": c.id, onclick: () => { cat = c.id; apply(); } }, c.label)));
+  search.addEventListener("input", () => { q = search.value.trim().toLowerCase(); apply(); });
+  apply();
+  const priv = at.items.filter((r) => r.visibility === "private").length;
+  $("#atlasNote").textContent = `${at.items.length} projects indexed · ${at.items.length - priv} public with links · ${priv} private (source available on request). Forks and course material are left out.`;
 }
