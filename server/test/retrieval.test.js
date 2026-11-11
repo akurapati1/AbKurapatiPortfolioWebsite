@@ -60,3 +60,18 @@ test("discovery brief is honest when nothing matches", () => {
   const b = discoveryBrief("We sell artisanal candles and want more happiness in the office somehow", kb.profile);
   assert.match(b.title, /find the pain first/);
 });
+
+test("atlas repos are searchable and honest about private ones", () => {
+  const hits = search(kb.index, "Murmur audiobook local text to speech", 3);
+  assert.ok(hits.some((h) => /murmur/i.test(h.chunk.title)));
+  const priv = kb.chunks.find((c) => c.id === "repo-murmur");
+  assert.match(priv.text, /Private repository/);
+  assert.ok(!/github\.com\/akurapati1\/murmur/i.test(priv.text), "private repo URL must not be exposed");
+  const pub = kb.chunks.find((c) => c.id === "repo-AIfullStackApp");
+  assert.match(pub.text, /github\.com\/akurapati1\/AIfullStackApp/);
+});
+
+test("profile data has no photo references", () => {
+  assert.equal(kb.profile.identity.photo, undefined);
+  assert.equal(kb.profile.identity.photoWebp, undefined);
+});

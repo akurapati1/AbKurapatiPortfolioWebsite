@@ -34,14 +34,21 @@ A message is never silently lost: if SMTP isn't configured the form says so and 
 npm run install:server      # once
 cp server/.env.example server/.env   # then edit (all values optional for a first run)
 npm start                   # http://localhost:8787  (site + API)
-npm test                    # 23 tests: retrieval, contact, SSE chat agent, fit/discovery
+npm test                    # 26 tests: retrieval, contact, SSE chat agent, fit/discovery
 ```
 
 Static-only preview (no API, built-in mode): `npm run serve:static` → http://localhost:8080
 
+## Highlights
+
+- **3D AI agent hero** (`assets/js/modules/agentcore.js`): a real-time neural sphere that assembles itself, rotates, responds to drag, and orbits capability modules; click one to reveal details and jump to that part of the site.
+- **Repo atlas**: every notable repo (55 indexed) with search and category filters, generated from `data/profile.json` and also searchable by the AI.
+- **Motion layer**: click ripples, 3D card tilt, magnetic buttons, word-by-word headings, decode-style labels, staggered reveals.
+- **No photos** anywhere on the site by design.
+
 ## Turn on the two real features
 
-**1. Email (SMTP).** In `server/.env`:
+**1. Email (SMTP).** Full walkthrough in [`docs/EMAIL_SETUP.md`](docs/EMAIL_SETUP.md); verify with `cd server && npm run test:mail`. In `server/.env`:
 ```
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587

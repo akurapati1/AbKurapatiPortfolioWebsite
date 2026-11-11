@@ -10,6 +10,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch --env-file-if-exists=.env src/index.js",
+    "test:mail": "node --env-file=.env scripts/test-mail.js",
     "test": "node --test \"test/*.test.js\""
   },
   "dependencies": {

@@ -29,6 +29,8 @@ export function loadConfig(env = process.env) {
       from: env.MAIL_FROM || env.SMTP_USER || "portfolio@localhost",
       fromName: env.MAIL_FROM_NAME || "Abhilash's Portfolio",
       sendConfirmation: bool(env.SEND_CONFIRMATION, false),
+      // Optional safety net: append every accepted submission to this JSONL file so nothing is lost if SMTP is down.
+      logPath: env.MESSAGE_LOG_PATH || "",
       smtp: env.SMTP_HOST
         ? {
             host: env.SMTP_HOST,

@@ -71,3 +71,17 @@ test("static site and sensitive paths", async () => {
   assert.equal(h.ai, "retrieval");
   await s.close();
 });
+
+test("optional message log records accepted submissions (and never the honeypot fields)", async () => {
+  const { mkdtempSync, readFileSync } = await import("node:fs");
+  const { tmpdir } = await import("node:os");
+  const { join } = await import("node:path");
+  const file = join(mkdtempSync(join(tmpdir(), "msglog-")), "m.jsonl");
+  const s = await start({ env: { MESSAGE_LOG_PATH: file } });
+  assert.equal((await post(s.base, "/api/contact", good)).status, 200);
+  await new Promise((r) => setTimeout(r, 100));
+  const rec = JSON.parse(readFileSync(file, "utf8").trim().split("\n").at(-1));
+  assert.equal(rec.email, "dana@acme.com");
+  assert.ok(!("website" in rec) && !("startedAt" in rec));
+  await s.close();
+});
