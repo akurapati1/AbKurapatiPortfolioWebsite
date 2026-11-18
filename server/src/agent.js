@@ -39,7 +39,7 @@ export const TOOLS = [
     description: "Get full detail for one project: problem, how it works, impact, stack and links.",
     input_schema: {
       type: "object",
-      properties: { project_id: { type: "string", description: "Project id, e.g. market-researcher, insurance-rag, ml-pipeline-gcp, sql-agent, ask-my-ai, meltshiny, nim-multirag, field-manuals, jnj-impact" } },
+      properties: { project_id: { type: "string", description: "Project id, e.g. incident-pilot, contract-copilot, revops-agent, insurance-rag, murmur, ask-my-ai, meltshiny, nim-multirag, field-manuals, jnj-impact" } },
       required: ["project_id"]
     }
   },

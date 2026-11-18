@@ -64,9 +64,10 @@ test("discovery brief is honest when nothing matches", () => {
 test("atlas repos are searchable and honest about private ones", () => {
   const hits = search(kb.index, "Murmur audiobook local text to speech", 3);
   assert.ok(hits.some((h) => /murmur/i.test(h.chunk.title)));
-  const priv = kb.chunks.find((c) => c.id === "repo-murmur");
-  assert.match(priv.text, /Private repository/);
-  assert.ok(!/github\.com\/akurapati1\/murmur/i.test(priv.text), "private repo URL must not be exposed");
+  const murmur = kb.chunks.find((c) => c.id === "repo-murmur");
+  assert.match(murmur.text, /github\.com\/akurapati1\/murmur/);
+  const inc = kb.chunks.find((c) => c.id === "repo-incident-pilot-sre");
+  assert.match(inc.text, /github\.com\/akurapati1\/incident-pilot-sre/);
   const pub = kb.chunks.find((c) => c.id === "repo-AIfullStackApp");
   assert.match(pub.text, /github\.com\/akurapati1\/AIfullStackApp/);
 });

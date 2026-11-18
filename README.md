@@ -41,8 +41,8 @@ Static-only preview (no API, built-in mode): `npm run serve:static` → http://l
 
 ## Highlights
 
-- **3D AI agent hero** (`assets/js/modules/agentcore.js`): a real-time neural sphere that assembles itself, rotates, responds to drag, and orbits capability modules; click one to reveal details and jump to that part of the site.
-- **Repo atlas**: every notable repo (55 indexed) with search and category filters, generated from `data/profile.json` and also searchable by the AI.
+- **ARI, the AI guide** (`assets/js/modules/guide.js`): a robot that physically travels the page (spring physics, thruster trail, look-at eyes, pointing arm), spotlights each section and narrates it, optionally out loud. Three chapters: what I've done, what I'm good at, what I've built. The script is generated from `data/profile.json`, so new roles, skills and projects join the tour automatically. Keyboard: `←` `→` `Space` `Esc`.
+- **Curated projects**: only repos with real, public code are shown (`showcase: true` in `data/profile.json`); each card links to the repo and shows its codebase size. Entries without public code stay in the AI's knowledge base but are not displayed.
 - **Motion layer**: click ripples, 3D card tilt, magnetic buttons, word-by-word headings, decode-style labels, staggered reveals.
 - **No photos** anywhere on the site by design.
 
