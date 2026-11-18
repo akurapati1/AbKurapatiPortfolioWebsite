@@ -32,80 +32,6 @@
       "Vertex AI · GKE · BigQuery · MLOps",
       "Human-in-the-loop, trustworthy AI",
       "Discovery → deployment → adoption"
-    ],
-    "orbit": [
-      {
-        "id": "agents",
-        "label": "Agents",
-        "color": "#a78bfa",
-        "title": "Multi-agent systems",
-        "text": "Google ADK, LangChain/LangGraph and Claude agents with tools, validation and human review. 5+ orchestrated steps in production at Johnson & Johnson.",
-        "metric": "5+ agentic steps",
-        "target": "#case"
-      },
-      {
-        "id": "rag",
-        "label": "RAG",
-        "color": "#22d3ee",
-        "title": "Retrieval you can trust",
-        "text": "Grounded answers with citations over PDFs, tables and documents: the Insurance RAG assistant, conversational RAG and multi-document RAG on NVIDIA NIM.",
-        "metric": "cited answers",
-        "target": "#work"
-      },
-      {
-        "id": "mlops",
-        "label": "MLOps",
-        "color": "#60a5fa",
-        "title": "From notebook to production",
-        "text": "Vertex AI Pipelines, Cloud Composer, GKE, CI/CD and monitoring with drift-triggered retraining. Versioned models, prompts and config.",
-        "metric": "100,000+ records",
-        "target": "#case"
-      },
-      {
-        "id": "gcp",
-        "label": "GCP",
-        "color": "#34d399",
-        "title": "Google Cloud native",
-        "text": "Vertex AI, BigQuery, Dataflow, Pub/Sub, Dataproc and GKE: the platform behind the J&J reporting system.",
-        "metric": "2 environments",
-        "target": "#skills"
-      },
-      {
-        "id": "fde",
-        "label": "FDE",
-        "color": "#f472b6",
-        "title": "Forward-deployed mindset",
-        "text": "Discover the pain, design the thinnest slice, deploy it into the real workflow, and stay close to iterate with users.",
-        "metric": "5-step method",
-        "target": "#fde"
-      },
-      {
-        "id": "hitl",
-        "label": "HITL",
-        "color": "#fbbf24",
-        "title": "Humans in the loop",
-        "text": "Reviewer edits and approvals become labeled feedback that improves prompts and retrieval. Trustworthy AI is a design choice.",
-        "metric": "2–3 wks → <1 min",
-        "target": "#case"
-      },
-      {
-        "id": "apps",
-        "label": "Apps",
-        "color": "#fb923c",
-        "title": "Full-stack AI products",
-        "text": "Murmur (PDF to audiobook), ChatABT (agentic chat platform), AI full-stack chat app: FastAPI, React, Postgres/pgvector, Docker.",
-        "metric": "shipped & containerized",
-        "target": "#work"
-      },
-      {
-        "id": "ask",
-        "label": "Ask AI",
-        "color": "#2dd4bf",
-        "title": "Talk to this site",
-        "text": "The assistant on this page is grounded in my verified profile. Ask it anything, paste a job description, or describe a workflow problem.",
-        "metric": "live agent",
-        "target": "#ask"
-      }
     ]
   },
   "metrics": [
@@ -137,24 +63,6 @@
       "color": "#22d3ee"
     },
     {
-      "id": "sources",
-      "kind": "count",
-      "value": 20,
-      "suffix": "+",
-      "label": "sources synthesized per research run",
-      "caption": "Agentic Market Researcher: news, SEC/EDGAR, Reddit",
-      "color": "#f59e0b"
-    },
-    {
-      "id": "hours",
-      "kind": "text",
-      "from": "3+ hrs",
-      "to": "1 click",
-      "label": "manual market research",
-      "caption": "Agentic Market Researcher",
-      "color": "#f472b6"
-    },
-    {
       "id": "prs",
       "kind": "count",
       "value": 30,
@@ -162,6 +70,15 @@
       "label": "pull requests reviewed as tech lead",
       "caption": "Open Source with SLU · guided 4 undergraduates through 10+ sprints",
       "color": "#60a5fa"
+    },
+    {
+      "id": "loc",
+      "kind": "count",
+      "value": 25000,
+      "suffix": "+",
+      "label": "lines in 3 open multi-agent platforms",
+      "caption": "IncidentPilot · Contract Copilot · RevOps Agent (public repos, tested, Dockerized)",
+      "color": "#f59e0b"
     }
   ],
   "summary": [
@@ -364,36 +281,108 @@
   },
   "projects": [
     {
-      "id": "market-researcher",
-      "name": "Agentic Market Researcher",
-      "tagline": "Multi-agent research platform: 3+ hours of analyst work in one click.",
+      "id": "incident-pilot",
+      "name": "IncidentPilot: AI on-call SRE",
+      "tagline": "Alerts in, root cause out. A team of agents investigates, a human approves the fix.",
       "category": "agents",
       "featured": true,
+      "showcase": true,
       "year": "2026",
-      "status": "Personal project",
-      "problem": "Market research means reading dozens of news items, SEC/EDGAR filings and social threads, then reconciling them. It's slow, and easy to do inconsistently.",
+      "status": "Open source · public repo",
+      "problem": "On-call engineers drown in duplicate alerts and spend the first hour of every incident digging through logs and runbooks before they can even guess at a cause.",
       "how": [
-        "Asynchronous Python ETL pulls 20+ sources (news, SEC/EDGAR, Reddit) in parallel.",
-        "Claude Haiku agents do the cheap, wide work (triage, extraction); Claude Sonnet agents do the synthesis.",
-        "Prompt caching keeps repeated context cheap; weighted ranking puts the most credible signals first.",
-        "Structured outputs and one-click insights replace manual note-taking."
+        "Normalizes Alertmanager, Datadog, PagerDuty and generic webhooks (HMAC-signed), then dedupes and correlates alerts into incidents.",
+        "A six-agent pipeline (Triage, Log Analyst, Root Cause, Runbook Retriever, Remediation Planner, Postmortem Writer) with a bounded tool loop and Pydantic-validated output with retries.",
+        "RAG over runbooks on Postgres + pgvector; ranked root-cause hypotheses with evidence, token and cost accounting per run.",
+        "Human-gated execution: a single choke point refuses to run anything not approved. Next.js 'war room' streams the agent trace live over SSE."
       ],
-      "impact": "Replaces 3+ hours of manual research with a single click.",
+      "impact": "Runs end to end with no API key (deterministic mock LLM), multi-tenant with RBAC, Docker and CI.",
       "stack": [
-        "Claude API",
-        "Claude Haiku",
-        "Claude Sonnet",
-        "Prompt caching",
-        "Multi-agent reasoning",
         "FastAPI",
-        "Async Python"
+        "Next.js",
+        "Postgres + pgvector",
+        "Redis",
+        "SSE",
+        "Multi-agent",
+        "Docker",
+        "GitHub Actions"
       ],
       "links": [
         {
           "label": "GitHub",
-          "url": "https://github.com/akurapati1/MarketResearcherAgentic"
+          "url": "https://github.com/akurapati1/incident-pilot-sre"
         }
-      ]
+      ],
+      "code": "10k+ lines"
+    },
+    {
+      "id": "contract-copilot",
+      "name": "Contract Compliance Copilot",
+      "tagline": "Upload an NDA or MSA, get cited violations and redlines. A human approves every change.",
+      "category": "agents",
+      "featured": true,
+      "showcase": true,
+      "year": "2026",
+      "status": "Open source · public repo",
+      "problem": "Legal teams re-read the same contract types against the same playbook, and AI that paraphrases or invents clauses is unusable in review.",
+      "how": [
+        "Six cooperating agents: Ingestor, Clause Extractor, Risk Scorer, Precedent Retriever, Redline Proposer, Summarizer, each persisted with tokens, cost and latency.",
+        "A deterministic rules engine raises signals; the LLM only adjudicates them. Every citation is verified as a verbatim substring or dropped.",
+        "Retrieves previously approved clauses (pgvector) so redlines reuse language the company already accepted.",
+        "Word-level redline accept / reject / edit, 'ask this contract' Q&A that refuses when the answer isn't there, hash-chained append-only audit log."
+      ],
+      "impact": "Grounded by construction: ungrounded quotes never reach the reviewer.",
+      "stack": [
+        "FastAPI",
+        "Next.js",
+        "pgvector",
+        "RAG",
+        "RBAC",
+        "Audit log",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/akurapati1/contract-compliance-copilot"
+        }
+      ],
+      "code": "9k+ lines"
+    },
+    {
+      "id": "revops-agent",
+      "name": "RevOps Agent Platform",
+      "tagline": "Multi-agent sales pipeline: research a lead, personalize outreach, and wait for human approval.",
+      "category": "agents",
+      "featured": true,
+      "showcase": true,
+      "year": "2026",
+      "status": "Open source · public repo",
+      "problem": "Outbound sales is repetitive research and writing, but nobody trusts an AI that emails prospects unsupervised.",
+      "how": [
+        "Five agents (Researcher, Enricher, Personalizer, Sequencer, Reply Triage) on a DAG orchestrator with per-step trace and retries.",
+        "Hard pause at an approval gate: nothing is emailed while a run is awaiting approval.",
+        "Reply triage classifies interested / objection / out-of-office / unsubscribe, drafts replies, and cancels sequences on unsubscribe.",
+        "Multi-tenant orgs, per-org monthly token limits, Redis job queue with worker, Alembic migrations."
+      ],
+      "impact": "Full dashboard, approval queue and run timeline; runs offline with a mock LLM.",
+      "stack": [
+        "FastAPI",
+        "Next.js",
+        "DAG orchestration",
+        "Redis",
+        "Pydantic",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/akurapati1/revops-agent-platform"
+        }
+      ],
+      "code": "6k+ lines"
     },
     {
       "id": "insurance-rag",
@@ -426,7 +415,169 @@
           "label": "GitHub",
           "url": "https://github.com/akurapati1/Agentic_Rag_For_Insurance"
         }
-      ]
+      ],
+      "showcase": true,
+      "code": "1k+ lines"
+    },
+    {
+      "id": "murmur",
+      "name": "Murmur: PDF to audiobook",
+      "tagline": "Drop in a book, get back an audiobook with chapters. Free, private, fully local.",
+      "category": "apps",
+      "featured": true,
+      "year": "2026",
+      "status": "Personal project · open source",
+      "problem": "Turning a long PDF into good audio means more than text-to-speech: front matter, running headers, captions and technical content all ruin the listening experience.",
+      "how": [
+        "Validates the file by content, then samples pages to judge whether the book works as audio (prose vs figures).",
+        "A narration 'director' strips front/back matter, headers, footers and captions, rejoins hyphenation, finds chapters from the outline or headings, and starts at the story.",
+        "Rules run offline; an optional AI layer refines judgment calls. Narrates sentence by sentence with deliberate pauses using local TTS (Kokoro, Piper or eSpeak), or a cloned voice.",
+        "Packages an .m4b with chapter markers and cover art (or MP3 / zipped chapters). FastAPI service and CLI, Docker, CI."
+      ],
+      "impact": "End-to-end local pipeline: $0 per book, no accounts or API keys.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Kokoro TTS",
+        "Piper",
+        "ffmpeg",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/akurapati1/murmur"
+        }
+      ],
+      "showcase": true,
+      "code": "16 test files"
+    },
+    {
+      "id": "ask-my-ai",
+      "name": "“Ask my AI” on my GitHub profile",
+      "tagline": "A recruiter-facing agent that runs entirely on GitHub Issues and Actions.",
+      "category": "agents",
+      "featured": false,
+      "year": "2026",
+      "status": "Open source",
+      "problem": "Resumes can't answer follow-up questions.",
+      "how": [
+        "A visitor opens a pre-filled issue; a GitHub Action calls a free LLM grounded in a curated knowledge base and replies on the issue.",
+        "Strict grounding rules, skill-level honesty (core / working / familiar), per-user and global daily caps, and sanitized output.",
+        "A 'job-fit check' compares a pasted job description against the knowledge base and reports evidence and gaps, honestly."
+      ],
+      "impact": "The same idea powers the AI on this site, with a richer UI.",
+      "stack": [
+        "GitHub Actions",
+        "Python",
+        "OpenRouter",
+        "Prompt-injection defenses"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/akurapati1/akurapati1"
+        }
+      ],
+      "showcase": true,
+      "code": "2k+ lines"
+    },
+    {
+      "id": "meltshiny",
+      "name": "MeltShiny",
+      "tagline": "Cross-platform DNA/RNA thermodynamic analytics for researchers.",
+      "category": "data",
+      "featured": true,
+      "year": "2025",
+      "status": "Open Source with SLU · tech lead",
+      "problem": "Two legacy research tools made reproducible thermodynamic analysis hard.",
+      "how": [
+        "Reactive R pipelines (MeltR) process melt curves, fit nonlinear models and flag outliers.",
+        "Extracts 4 ML-ready thermodynamic features.",
+        "Dockerized, with GitHub Actions CI/CD; led a team of 4 undergraduates through 10+ sprints and reviewed 30+ pull requests."
+      ],
+      "impact": "Two tools merged into one reproducible platform.",
+      "stack": [
+        "R",
+        "Shiny",
+        "MeltR",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/oss-slu/MeltShiny"
+        }
+      ],
+      "showcase": true,
+      "code": "oss-slu"
+    },
+    {
+      "id": "easybudget",
+      "name": "EasyBudget",
+      "tagline": "A deployment-ready personal-finance app: accounts, budgets, goals and live charts.",
+      "category": "apps",
+      "featured": true,
+      "showcase": true,
+      "year": "2025",
+      "status": "Open source · public repo",
+      "problem": "Spreadsheet budgeting breaks down; people want income, expenses and goals in one secure dashboard.",
+      "how": [
+        "React 18 SPA with context + reducer state and Chart.js analytics; Express + MongoDB API.",
+        "JWT auth with single-use, expiring password-reset links; helmet, CORS allow-list, rate-limited auth routes, NoSQL-injection guards.",
+        "Docker for API and nginx-served SPA, Compose, and GitHub Actions (tests, build, image build)."
+      ],
+      "impact": "A production-shaped MERN app, not a tutorial clone.",
+      "stack": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/akurapati1/EasyBudgetProductionRepo"
+        }
+      ],
+      "code": "2k+ lines"
+    },
+    {
+      "id": "market-researcher",
+      "name": "Agentic Market Researcher",
+      "tagline": "Multi-agent research platform: 3+ hours of analyst work in one click.",
+      "category": "agents",
+      "featured": true,
+      "year": "2026",
+      "status": "Personal project",
+      "problem": "Market research means reading dozens of news items, SEC/EDGAR filings and social threads, then reconciling them. It's slow, and easy to do inconsistently.",
+      "how": [
+        "Asynchronous Python ETL pulls 20+ sources (news, SEC/EDGAR, Reddit) in parallel.",
+        "Claude Haiku agents do the cheap, wide work (triage, extraction); Claude Sonnet agents do the synthesis.",
+        "Prompt caching keeps repeated context cheap; weighted ranking puts the most credible signals first.",
+        "Structured outputs and one-click insights replace manual note-taking."
+      ],
+      "impact": "Replaces 3+ hours of manual research with a single click.",
+      "stack": [
+        "Claude API",
+        "Claude Haiku",
+        "Claude Sonnet",
+        "Prompt caching",
+        "Multi-agent reasoning",
+        "FastAPI",
+        "Async Python"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/akurapati1/MarketResearcherAgentic"
+        }
+      ],
+      "showcase": false
     },
     {
       "id": "ml-pipeline-gcp",
@@ -452,7 +603,8 @@
         "FastAPI",
         "GKE"
       ],
-      "links": []
+      "links": [],
+      "showcase": false
     },
     {
       "id": "sql-agent",
@@ -481,64 +633,8 @@
           "label": "Earlier prototype",
           "url": "https://github.com/akurapati1/ChatWithSQLDB"
         }
-      ]
-    },
-    {
-      "id": "ask-my-ai",
-      "name": "“Ask my AI” on my GitHub profile",
-      "tagline": "A recruiter-facing agent that runs entirely on GitHub Issues and Actions.",
-      "category": "agents",
-      "featured": false,
-      "year": "2026",
-      "status": "Open source",
-      "problem": "Resumes can't answer follow-up questions.",
-      "how": [
-        "A visitor opens a pre-filled issue; a GitHub Action calls a free LLM grounded in a curated knowledge base and replies on the issue.",
-        "Strict grounding rules, skill-level honesty (core / working / familiar), per-user and global daily caps, and sanitized output.",
-        "A 'job-fit check' compares a pasted job description against the knowledge base and reports evidence and gaps, honestly."
       ],
-      "impact": "The same idea powers the AI on this site, with a richer UI.",
-      "stack": [
-        "GitHub Actions",
-        "Python",
-        "OpenRouter",
-        "Prompt-injection defenses"
-      ],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/akurapati1/akurapati1"
-        }
-      ]
-    },
-    {
-      "id": "meltshiny",
-      "name": "MeltShiny",
-      "tagline": "Cross-platform DNA/RNA thermodynamic analytics for researchers.",
-      "category": "data",
-      "featured": false,
-      "year": "2025",
-      "status": "Open Source with SLU · tech lead",
-      "problem": "Two legacy research tools made reproducible thermodynamic analysis hard.",
-      "how": [
-        "Reactive R pipelines (MeltR) process melt curves, fit nonlinear models and flag outliers.",
-        "Extracts 4 ML-ready thermodynamic features.",
-        "Dockerized, with GitHub Actions CI/CD; led a team of 4 undergraduates through 10+ sprints and reviewed 30+ pull requests."
-      ],
-      "impact": "Two tools merged into one reproducible platform.",
-      "stack": [
-        "R",
-        "Shiny",
-        "MeltR",
-        "Docker",
-        "GitHub Actions"
-      ],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/oss-slu/MeltShiny"
-        }
-      ]
+      "showcase": false
     },
     {
       "id": "nim-multirag",
@@ -569,7 +665,8 @@
           "label": "Live demo",
           "url": "https://nvidianimmultirag-lnhephhb7y8fsf55by53nr.streamlit.app/"
         }
-      ]
+      ],
+      "showcase": false
     },
     {
       "id": "field-manuals",
@@ -605,34 +702,8 @@
           "label": "LLM trade-offs",
           "url": "https://github.com/akurapati1/LLM_tradeoffs"
         }
-      ]
-    },
-    {
-      "id": "murmur",
-      "name": "Murmur: PDF to audiobook",
-      "tagline": "Drop in a book, get back an audiobook with chapters. Free, private, fully local.",
-      "category": "apps",
-      "featured": true,
-      "year": "2026",
-      "status": "Personal project · private repo",
-      "problem": "Turning a long PDF into good audio means more than text-to-speech: front matter, running headers, captions and technical content all ruin the listening experience.",
-      "how": [
-        "Validates the file by content, then samples pages to judge whether the book works as audio (prose vs figures).",
-        "A narration 'director' strips front/back matter, headers, footers and captions, rejoins hyphenation, finds chapters from the outline or headings, and starts at the story.",
-        "Rules run offline; an optional AI layer refines judgment calls. Narrates sentence by sentence with deliberate pauses using local TTS (Kokoro, Piper or eSpeak), or a cloned voice.",
-        "Packages an .m4b with chapter markers and cover art (or MP3 / zipped chapters). FastAPI service and CLI, Docker, CI."
       ],
-      "impact": "End-to-end local pipeline: $0 per book, no accounts or API keys.",
-      "stack": [
-        "Python",
-        "FastAPI",
-        "Kokoro TTS",
-        "Piper",
-        "ffmpeg",
-        "Docker",
-        "GitHub Actions"
-      ],
-      "links": []
+      "showcase": false
     },
     {
       "id": "chat-abt",
@@ -660,7 +731,8 @@
         "OpenRouter",
         "Docker"
       ],
-      "links": []
+      "links": [],
+      "showcase": false
     },
     {
       "id": "ai-fullstack-app",
@@ -690,7 +762,8 @@
           "label": "GitHub",
           "url": "https://github.com/akurapati1/AIfullStackApp"
         }
-      ]
+      ],
+      "showcase": false
     },
     {
       "id": "conversational-rag",
@@ -719,7 +792,8 @@
           "label": "GitHub",
           "url": "https://github.com/akurapati1/ConversationalChatBot"
         }
-      ]
+      ],
+      "showcase": false
     },
     {
       "id": "bq-tool",
@@ -748,7 +822,8 @@
           "label": "GitHub",
           "url": "https://github.com/akurapati1/BQ__tool"
         }
-      ]
+      ],
+      "showcase": false
     },
     {
       "id": "crewai-agents",
@@ -774,7 +849,8 @@
           "label": "GitHub",
           "url": "https://github.com/akurapati1/CrewAIpractice"
         }
-      ]
+      ],
+      "showcase": false
     }
   ],
   "fde": {
@@ -955,8 +1031,8 @@
         ],
         "humanGate": "Analyst reviews the synthesis and the cited sources before acting.",
         "proof": {
-          "project": "market-researcher",
-          "claim": "20+ sources synthesized; 3+ hours → one click"
+          "project": "incident-pilot",
+          "claim": "Multi-agent investigation that ranks root causes with evidence, behind a human approval gate"
         }
       },
       {
@@ -992,8 +1068,8 @@
         ],
         "humanGate": "Show the generated query; read-only credentials; analysts review new query patterns.",
         "proof": {
-          "project": "sql-agent",
-          "claim": "5+ query types across 10+ PostgreSQL tables in plain English"
+          "project": "contract-copilot",
+          "claim": "Grounded retrieval with verbatim citations, and refusal when the answer is not in the data"
         }
       },
       {
@@ -1401,52 +1477,15 @@
     }
   ],
   "atlas": {
-    "title": "The full repo atlas",
-    "intro": "Everything worth opening, beyond the featured cards: agents, RAG systems, full-stack builds, ML, data tooling and open guides. Filter, search, and click through.",
+    "title": "Also on GitHub",
+    "intro": "Repos with real, runnable code. Tutorials, notebooks-for-practice and course forks are deliberately left out.",
     "categories": [
       {
         "id": "all",
         "label": "All"
-      },
-      {
-        "id": "agents",
-        "label": "Agents"
-      },
-      {
-        "id": "rag",
-        "label": "RAG"
-      },
-      {
-        "id": "apps",
-        "label": "AI & full-stack apps"
-      },
-      {
-        "id": "ml",
-        "label": "ML & DL"
-      },
-      {
-        "id": "data",
-        "label": "Data & cloud"
-      },
-      {
-        "id": "guides",
-        "label": "Guides"
       }
     ],
     "items": [
-      {
-        "name": "MarketResearcherAgentic",
-        "category": "agents",
-        "description": "Multi-agent market research on Claude Haiku and Sonnet with prompt caching and weighted ranking over 20+ sources.",
-        "stack": [
-          "Claude API",
-          "FastAPI",
-          "async ETL"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/MarketResearcherAgentic",
-        "core": true
-      },
       {
         "name": "akurapati1",
         "category": "agents",
@@ -1462,79 +1501,6 @@
         "title": "Ask my AI (GitHub profile agent)"
       },
       {
-        "name": "CrewAIpractice",
-        "category": "agents",
-        "description": "CrewAI researcher + writer agents that turn a YouTube channel into a blog post.",
-        "stack": [
-          "CrewAI",
-          "RAG"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/CrewAIpractice",
-        "core": false
-      },
-      {
-        "name": "Tools-and-agents",
-        "category": "agents",
-        "description": "LangChain tools and agents notebook.",
-        "stack": [
-          "LangChain",
-          "Agents"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Tools-and-agents",
-        "core": false
-      },
-      {
-        "name": "searchEngine",
-        "category": "agents",
-        "description": "Search-engine chat agent built with LangChain tools and agents.",
-        "stack": [
-          "LangChain",
-          "Tools",
-          "Streamlit"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/searchEngine",
-        "core": false
-      },
-      {
-        "name": "textToMathSolver",
-        "category": "agents",
-        "description": "LLM app that solves math word problems from plain text.",
-        "stack": [
-          "LangChain",
-          "LLM"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/textToMathSolver",
-        "core": false
-      },
-      {
-        "name": "PromptChaining-getttingStarted",
-        "category": "agents",
-        "description": "Getting-started notebook for prompt chaining.",
-        "stack": [
-          "Prompt chaining",
-          "uv"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/PromptChaining-getttingStarted",
-        "core": false
-      },
-      {
-        "name": "AgenticAI",
-        "category": "agents",
-        "description": "LangChain learning workspace: LCEL, loaders, splitters, embeddings, Chroma and a CLI assistant.",
-        "stack": [
-          "LangChain",
-          "Chroma"
-        ],
-        "visibility": "private",
-        "url": "",
-        "core": false
-      },
-      {
         "name": "Agentic_Rag_For_Insurance",
         "category": "rag",
         "description": "Full-stack RAG assistant for insurance PDFs: ChromaDB, local embeddings, cited answers, FastAPI + React.",
@@ -1545,94 +1511,6 @@
         ],
         "visibility": "public",
         "url": "https://github.com/akurapati1/Agentic_Rag_For_Insurance",
-        "core": true
-      },
-      {
-        "name": "ConversationalChatBot",
-        "category": "rag",
-        "description": "Conversational RAG over PDFs with a history-aware retriever.",
-        "stack": [
-          "LangChain",
-          "Chroma",
-          "Groq"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/ConversationalChatBot",
-        "core": true
-      },
-      {
-        "name": "NvidiaNIMmultiRAG",
-        "category": "rag",
-        "description": "Multi-document RAG on NVIDIA NIM, deployed as a public Streamlit demo.",
-        "stack": [
-          "NVIDIA NIM",
-          "Streamlit"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/NvidiaNIMmultiRAG",
-        "core": true
-      },
-      {
-        "name": "MultiRagwithAstraDB",
-        "category": "rag",
-        "description": "Multi-RAG over PDFs with a managed vector database.",
-        "stack": [
-          "LangChain",
-          "AstraDB"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/MultiRagwithAstraDB",
-        "core": false
-      },
-      {
-        "name": "RAGdocumentQ-A",
-        "category": "rag",
-        "description": "Document question answering with RAG.",
-        "stack": [
-          "LangChain",
-          "RAG"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/RAGdocumentQ-A",
-        "core": false
-      },
-      {
-        "name": "ChatWithSQLDB",
-        "category": "rag",
-        "description": "Natural-language chat with a SQL database: LangChain turns questions into queries.",
-        "stack": [
-          "LangChain",
-          "SQL",
-          "Streamlit"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/ChatWithSQLDB",
-        "core": true
-      },
-      {
-        "name": "murmur",
-        "category": "apps",
-        "description": "Local PDF-to-audiobook converter with a narration director, chapters and local or cloned voices.",
-        "stack": [
-          "FastAPI",
-          "Kokoro TTS",
-          "ffmpeg"
-        ],
-        "visibility": "private",
-        "url": "",
-        "core": true
-      },
-      {
-        "name": "Chat_ABT",
-        "category": "apps",
-        "description": "Agentic ChatGPT-style platform: React, FastAPI, pgvector, Redis, OpenRouter, project-aware code agents.",
-        "stack": [
-          "React",
-          "FastAPI",
-          "pgvector"
-        ],
-        "visibility": "private",
-        "url": "",
         "core": true
       },
       {
@@ -1649,114 +1527,6 @@
         "core": true
       },
       {
-        "name": "GeminiClone",
-        "category": "apps",
-        "description": "Gemini-style chat interface built in React.",
-        "stack": [
-          "React",
-          "Vite"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/GeminiClone",
-        "core": false
-      },
-      {
-        "name": "Q-AChatBotWithOllama",
-        "category": "apps",
-        "description": "Q&A chatbot running on local Ollama models.",
-        "stack": [
-          "Ollama",
-          "LangChain"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Q-AChatBotWithOllama",
-        "core": false
-      },
-      {
-        "name": "QandA-ChatBot",
-        "category": "apps",
-        "description": "Q&A chatbot with a prompt-driven LLM backend.",
-        "stack": [
-          "LangChain",
-          "Streamlit"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/QandA-ChatBot",
-        "core": false
-      },
-      {
-        "name": "BasicLCELApplication",
-        "category": "apps",
-        "description": "Basic LangChain LCEL application served as an API.",
-        "stack": [
-          "LangChain",
-          "LCEL"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/BasicLCELApplication",
-        "core": false
-      },
-      {
-        "name": "Langchain_Ollama_FastAPI",
-        "category": "apps",
-        "description": "Local LLM behind a FastAPI service using LangChain and Ollama.",
-        "stack": [
-          "Ollama",
-          "FastAPI"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Langchain_Ollama_FastAPI",
-        "core": false
-      },
-      {
-        "name": "MultiLanguageCodeAssistant",
-        "category": "apps",
-        "description": "Local code assistant on Ollama with a custom modelfile.",
-        "stack": [
-          "Ollama",
-          "Python"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/MultiLanguageCodeAssistant",
-        "core": false
-      },
-      {
-        "name": "textSummarizationBot",
-        "category": "apps",
-        "description": "Text summarization bot for long documents.",
-        "stack": [
-          "NLP",
-          "Python"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/textSummarizationBot",
-        "core": false
-      },
-      {
-        "name": "LinkedInPostGenerationBot",
-        "category": "apps",
-        "description": "LLM-based LinkedIn post generator.",
-        "stack": [
-          "LLM",
-          "Python"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/LinkedInPostGenerationBot",
-        "core": false
-      },
-      {
-        "name": "FinancedomainLLM",
-        "category": "apps",
-        "description": "Finance-domain LLM experiments on news text.",
-        "stack": [
-          "LLM",
-          "Python"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/FinancedomainLLM",
-        "core": false
-      },
-      {
         "name": "PersonalPdfEditor",
         "category": "apps",
         "description": "Private, in-browser PDF editor with annotation and signing. Files never leave the device.",
@@ -1767,101 +1537,6 @@
         ],
         "visibility": "public",
         "url": "https://github.com/akurapati1/PersonalPdfEditor",
-        "core": false
-      },
-      {
-        "name": "ANN-Classification-for-Churn-Prediction",
-        "category": "ml",
-        "description": "Customer churn prediction with an artificial neural network.",
-        "stack": [
-          "TensorFlow",
-          "Keras"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/ANN-Classification-for-Churn-Prediction",
-        "core": false
-      },
-      {
-        "name": "ANN-for-Regression-Customer-salary-Estimation-",
-        "category": "ml",
-        "description": "Customer salary estimation with ANN regression.",
-        "stack": [
-          "TensorFlow",
-          "Keras"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/ANN-for-Regression-Customer-salary-Estimation-",
-        "core": false
-      },
-      {
-        "name": "RNN-For-IMDB-review-Sentiment-Analysis",
-        "category": "ml",
-        "description": "IMDB review sentiment analysis with an RNN.",
-        "stack": [
-          "Keras",
-          "RNN"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/RNN-For-IMDB-review-Sentiment-Analysis",
-        "core": false
-      },
-      {
-        "name": "Predicting-the-next-word-using-LSTM-RNN",
-        "category": "ml",
-        "description": "Next-word prediction with an LSTM.",
-        "stack": [
-          "Keras",
-          "LSTM"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Predicting-the-next-word-using-LSTM-RNN",
-        "core": false
-      },
-      {
-        "name": "Predicting-the-next-word-using-GRU-RNN",
-        "category": "ml",
-        "description": "Next-word prediction with a GRU.",
-        "stack": [
-          "Keras",
-          "GRU"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Predicting-the-next-word-using-GRU-RNN",
-        "core": false
-      },
-      {
-        "name": "StockMarketSentimentAnalysis",
-        "category": "ml",
-        "description": "Stock-market sentiment analysis on headlines.",
-        "stack": [
-          "NLP",
-          "scikit-learn"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/StockMarketSentimentAnalysis",
-        "core": false
-      },
-      {
-        "name": "MovieRecommendationWCosineSimilarity",
-        "category": "ml",
-        "description": "Item-based collaborative filtering with cosine similarity on MovieLens 100k.",
-        "stack": [
-          "pandas",
-          "Recommenders"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/MovieRecommendationWCosineSimilarity",
-        "core": false
-      },
-      {
-        "name": "LearnGANs",
-        "category": "ml",
-        "description": "Generative adversarial network learning notes.",
-        "stack": [
-          "GANs"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/LearnGANs",
         "core": false
       },
       {
@@ -1876,18 +1551,6 @@
         "visibility": "public",
         "url": "https://github.com/akurapati1/BQ__tool",
         "core": true
-      },
-      {
-        "name": "basicContainerizedApp",
-        "category": "data",
-        "description": "Node/Express service demonstrating Docker best practices and a GitHub Actions publish pipeline.",
-        "stack": [
-          "Docker",
-          "GitHub Actions"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/basicContainerizedApp",
-        "core": false
       },
       {
         "name": "MeltShiny",
@@ -1916,191 +1579,108 @@
         "core": false
       },
       {
-        "name": "WeConnect_Backend_Dev_App",
-        "category": "apps",
-        "description": "LinkedIn-style networking backend as Spring Boot microservices with a connection workflow.",
+        "name": "incident-pilot-sre",
+        "category": "agents",
+        "description": "AI on-call SRE: multi-agent incident investigation with human-gated remediation.",
         "stack": [
-          "Spring Boot",
-          "Docker"
+          "FastAPI",
+          "Next.js",
+          "pgvector"
         ],
         "visibility": "public",
-        "url": "https://github.com/akurapati1/WeConnect_Backend_Dev_App",
-        "core": false
-      },
-      {
-        "name": "YourRide_backEnd_Dev_App",
-        "category": "apps",
-        "description": "Ride-hailing backend: JWT, PostgreSQL/PostGIS geo-matching, surge pricing, wallet and ratings.",
-        "stack": [
-          "Spring Boot",
-          "PostGIS"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/YourRide_backEnd_Dev_App",
-        "core": false
-      },
-      {
-        "name": "StudyBuddyUsingDjango",
-        "category": "apps",
-        "description": "Community study platform built with Django.",
-        "stack": [
-          "Django"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/StudyBuddyUsingDjango",
-        "core": false
-      },
-      {
-        "name": "MernStackPractice",
-        "category": "apps",
-        "description": "MERN stack practice project.",
-        "stack": [
-          "MongoDB",
-          "Express",
-          "React",
-          "Node"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/MernStackPractice",
-        "core": false
-      },
-      {
-        "name": "Loan-Calculator",
-        "category": "apps",
-        "description": "Loan and prepayment calculator.",
-        "stack": [
-          "JavaScript"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Loan-Calculator",
-        "core": false
-      },
-      {
-        "name": "LLMOps-Guide",
-        "category": "guides",
-        "description": "LLM Systems Field Manual: six production patterns on Google Cloud with runnable starters.",
-        "stack": [
-          "LLMOps",
-          "GCP"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/LLMOps-Guide",
+        "url": "https://github.com/akurapati1/incident-pilot-sre",
         "core": true
       },
       {
-        "name": "RAG_QnA",
-        "category": "guides",
-        "description": "RAG field notes: chunking, embeddings, vector DBs, retrieval, multi-tenancy, evaluation.",
+        "name": "contract-compliance-copilot",
+        "category": "agents",
+        "description": "Agentic contract review with verbatim citations, redlines and an audit log.",
         "stack": [
-          "RAG"
+          "FastAPI",
+          "Next.js",
+          "pgvector"
         ],
         "visibility": "public",
-        "url": "https://github.com/akurapati1/RAG_QnA",
+        "url": "https://github.com/akurapati1/contract-compliance-copilot",
         "core": true
       },
       {
-        "name": "LLM_tradeoffs",
-        "category": "guides",
-        "description": "Vector retrieval and LLM systems trade-offs: HNSW/IVF, architectures, agent frameworks.",
+        "name": "revops-agent-platform",
+        "category": "agents",
+        "description": "Multi-agent sales pipeline with an approval gate and reply triage.",
         "stack": [
-          "Vector search"
+          "FastAPI",
+          "Next.js",
+          "Redis"
         ],
         "visibility": "public",
-        "url": "https://github.com/akurapati1/LLM_tradeoffs",
+        "url": "https://github.com/akurapati1/revops-agent-platform",
         "core": true
       },
       {
-        "name": "interview_prep_AI_Engineer",
-        "category": "guides",
-        "description": "AI-engineer interview prep: every question a resume invites, answered.",
+        "name": "murmur",
+        "category": "apps",
+        "description": "Turn any book PDF into an audiobook, fully local and free.",
         "stack": [
-          "Interview prep"
+          "Python",
+          "FastAPI",
+          "Kokoro TTS"
         ],
         "visibility": "public",
-        "url": "https://github.com/akurapati1/interview_prep_AI_Engineer",
-        "core": false
-      },
-      {
-        "name": "Basics-Questions-AI",
-        "category": "guides",
-        "description": "AI/ML engineering interview field manual: 50 curated questions with live search and progress tracking.",
-        "stack": [
-          "LLMs",
-          "RAG",
-          "MLOps"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Basics-Questions-AI",
-        "core": false
-      },
-      {
-        "name": "GenAiLeaderStudyGuide",
-        "category": "guides",
-        "description": "Study guide for the Google Generative AI Leader certification.",
-        "stack": [
-          "Generative AI"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/GenAiLeaderStudyGuide",
-        "core": false
-      },
-      {
-        "name": "Python-Interview-Guide",
-        "category": "guides",
-        "description": "Python interview questions from beginner to senior.",
-        "stack": [
-          "Python"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Python-Interview-Guide",
-        "core": false
-      },
-      {
-        "name": "DSA-Guide",
-        "category": "guides",
-        "description": "Data structures and algorithms guide.",
-        "stack": [
-          "DSA"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/DSA-Guide",
-        "core": false
-      },
-      {
-        "name": "FromScratch",
-        "category": "guides",
-        "description": "Building the smallest-to-scalable applications from scratch.",
-        "stack": [
-          "Python"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/FromScratch",
-        "core": false
-      },
-      {
-        "name": "OneUponTheWallStreet-PreReads",
-        "category": "guides",
-        "description": "Reader's prep guide for One Up On Wall Street.",
-        "stack": [
-          "Web"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/OneUponTheWallStreet-PreReads",
-        "core": false
-      },
-      {
-        "name": "Market_Analysis_21_06_26",
-        "category": "guides",
-        "description": "Daily market-briefing pages (9 editions published May–June 2026, e.g. this one).",
-        "stack": [
-          "Static site",
-          "GitHub Pages"
-        ],
-        "visibility": "public",
-        "url": "https://github.com/akurapati1/Market_Analysis_21_06_26",
-        "core": false,
-        "title": "Daily market briefings (9 editions)"
+        "url": "https://github.com/akurapati1/murmur",
+        "core": true
       }
     ]
+  },
+  "guide": {
+    "name": "ARI",
+    "role": "Abhilash's AI guide",
+    "intro": "Hi, I'm ARI, Abhilash's AI guide. I'll walk you through three things: what he has done, what he's genuinely good at, and what he has built. Only projects with real, public code made the cut. It takes about three minutes, and you can skip around any time.",
+    "chapters": [
+      {
+        "id": "intro",
+        "label": "Hello",
+        "blurb": "Meet your guide"
+      },
+      {
+        "id": "did",
+        "label": "What he's done",
+        "blurb": "Impact, roles and the flagship J&J system"
+      },
+      {
+        "id": "good",
+        "label": "What he's good at",
+        "blurb": "Skills, with honest depth"
+      },
+      {
+        "id": "built",
+        "label": "What he's built",
+        "blurb": "Projects with real code"
+      },
+      {
+        "id": "contact",
+        "label": "Say hello",
+        "blurb": "Contact and next steps"
+      }
+    ],
+    "impact": "Let's start with the numbers. The headline: Medical Impact Assessment reports at Johnson and Johnson went from two to three weeks down to under a minute, with human reviewers still in control.",
+    "impactMore": "Behind that: over one hundred thousand records through automated ML pipelines, five-plus orchestrated agent steps, and thirty-plus pull requests reviewed as a tech lead.",
+    "experience": {
+      "pozent": "Now. Abhilash is an Associate AI Engineer at Pozent, working on enterprise AI for Johnson and Johnson. He architected a Google Cloud agentic system for medical reporting, built the data pipelines under it, and runs it on GKE with monitoring and CI/CD.",
+      "slu": "Before that, he was Technical Lead for Open Source with Saint Louis University. He led four undergraduates through ten-plus sprints to turn two legacy research tools into one analytics platform, reviewing over thirty pull requests along the way.",
+      "highradius": "His first production machine learning was an internship at HighRadius: forecasting late invoice payments on fifty thousand-plus invoices, deployed as a Flask service."
+    },
+    "education": "Education: a Master's in Computer Science from Saint Louis University with a 3.94 GPA, and an engineering degree in Electronics and Communication.",
+    "case": "Here's the flagship system, drawn out. Watch the lanes light up as I go.",
+    "lanes": {
+      "data": "First, the data lane. Pub/Sub and Dataflow ingest events, then Dataproc and BigQuery make everything model-ready, orchestrated by Cloud Composer across two environments.",
+      "agents": "Then the agent lane: retrieval pulls the right evidence for each section, five-plus agent steps reason and draft, and validators check the output before any human sees it.",
+      "trust": "The trust lane is the point. A reviewer edits and approves, and those edits become labeled feedback that improves prompts and retrieval. Then PDF and Word reports are delivered.",
+      "ops": "And operations: GKE, CI/CD, versioned prompts and models, plus dashboards watching latency, errors and output quality."
+    },
+    "skillsIntro": "On to what he's good at. These levels are deliberate: core means shipped in real work, working means comfortable, familiar means exposure only.",
+    "builtIntro": "Now what he's built. I checked the code behind every card here. Tutorials and empty repos were left out on purpose.",
+    "builtOutro": "There are a few more worth opening below, and every card links to the real repository.",
+    "closing": "That's the tour. If you're hiring for AI engineering or forward deployed work, the quickest next step is a message or a call. Or ask me anything, and I'll answer from his verified profile."
   }
 }

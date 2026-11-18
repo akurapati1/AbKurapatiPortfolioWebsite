@@ -200,7 +200,7 @@ export function answerOffline(question, profile, index) {
   if (intent === "jnj") {
     hits = [...index.chunks.filter((c) => c.id === "case-study" || c.id === "exp-pozent")].map((chunk) => ({ chunk, score: 1 }));
   } else if (intent === "projects") {
-    hits = ["case-study", "proj-market-researcher", "proj-insurance-rag", "proj-chat-abt", "proj-murmur"]
+    hits = ["case-study", "proj-incident-pilot", "proj-contract-copilot", "proj-revops-agent", "proj-insurance-rag"]
       .map((cid) => index.chunks.find((c) => c.id === cid)).filter(Boolean).map((chunk) => ({ chunk, score: 1 }));
   } else if (intent === "fde" && /forward deployed|fde|approach|customer|client/i.test(q)) {
     hits = ["fde-overview", "fde-str-Clear communicator", "fde-str-Pain-point detective"]

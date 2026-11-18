@@ -2,12 +2,12 @@ import { $, h } from "./util.js";
 import { probe, net } from "./api.js";
 import { createBrain } from "./brain.js";
 import { createChatStore, mountChat } from "./modules/chat.js";
-import { renderHero, renderMetrics, renderAbout, renderCaseStudy, renderProjects, renderFDE, renderSkills, renderExperience, renderAtlas, renderOrbUI, startIdCard } from "./modules/sections.js";
-import { startAgentCore } from "./modules/agentcore.js";
+import { renderHero, renderMetrics, renderAbout, renderCase, renderProjects, renderFDE, renderSkills, renderExperience, startIdCard } from "./modules/render.js";
+import { createGuide } from "./modules/guide.js";
 import { setupRipple, setupTilt, setupMagnetic, setupWarp, setupReveal } from "./modules/fx.js";
 import { setupFit, setupDiscover, setupTabs } from "./modules/aitools.js";
 import { setupContact } from "./modules/contact.js";
-import { startNeural, startChrome, setupTheme, setupDrawer, setupPalette } from "./modules/effects.js";
+import { startChrome, setupTheme, setupDrawer, setupPalette } from "./modules/effects.js";
 
 async function loadProfile() {
   const r = await fetch("data/profile.json", { cache: "no-cache" });
@@ -18,7 +18,6 @@ async function loadProfile() {
 async function boot() {
   setupTheme();
   startChrome();
-  startNeural();
 
   let profile;
   const probing = probe();
@@ -30,17 +29,15 @@ async function boot() {
   }
 
   // Render everything that doesn't depend on the backend immediately.
-  renderHero(profile); renderMetrics(profile); renderAbout(profile); renderCaseStudy(profile);
-  renderProjects(profile); renderAtlas(profile); renderFDE(profile); renderSkills(profile); renderExperience(profile);
+  const tour = (chapter) => document.dispatchEvent(new CustomEvent("portfolio:tour", { detail: { chapter } }));
+  renderHero(profile, { onMission: tour }); renderMetrics(profile); renderAbout(profile); renderExperience(profile); renderCase(profile);
+  renderSkills(profile); renderProjects(profile); renderFDE(profile);
   startIdCard();
   setupReveal(); setupRipple(); setupTilt(); setupMagnetic(); setupWarp();
 
-  // The 3D agent: orbiting modules reveal what the site contains.
-  const holder = {};
-  const core = startAgentCore($("#agentCore"), profile.hero.orbit, { onSelect: (m, o) => holder.show?.(m, o) });
-  holder.show = renderOrbUI(profile, core);
-  if (core.selected >= 0) holder.show(profile.hero.orbit[core.selected], { auto: true });
-  setTimeout(() => $("#orbHint")?.classList.add("fade"), 6000);
+  // ARI, the AI guide that travels the page and narrates the portfolio.
+  $("#tourStart").addEventListener("click", () => tour("intro"));
+  $("#tourBtn").addEventListener("click", () => tour("intro"));
 
   // Scheduling link (set identity.scheduling.url in profile.json)
   const sch = profile.identity.scheduling;
@@ -61,6 +58,7 @@ async function boot() {
       if (inlineOnly) { selectTab("chat"); inline.focus(); } else drawerChat.focus();
     }
   });
+  createGuide(profile, { openChat: () => drawer.open() });
   setupPalette({
     ask: (q) => { drawer.open(); store.send(q); },
     openChat: () => drawer.open()

@@ -1,49 +1,5 @@
 import { $, $$, h, reducedMotion, safeStorage } from "../util.js";
 
-/* ---------------------------------------------------------------- neural network canvas */
-export function startNeural() {
-  const cv = $("#neural");
-  if (!cv || reducedMotion()) return;
-  const ctx = cv.getContext("2d");
-  let w = 0, h_ = 0, dpr = 1, nodes = [], raf = 0, running = true;
-  const mouse = { x: -999, y: -999 };
-  const palette = ["139,92,246", "34,211,238", "96,165,250"];
-
-  const resize = () => {
-    dpr = Math.min(devicePixelRatio || 1, 2);
-    w = innerWidth; h_ = innerHeight;
-    cv.width = w * dpr; cv.height = h_ * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const n = Math.min(90, Math.floor((w * h_) / 17000));
-    nodes = Array.from({ length: n }, () => ({
-      x: Math.random() * w, y: Math.random() * h_, vx: (Math.random() - .5) * .28, vy: (Math.random() - .5) * .28,
-      r: Math.random() * 1.6 + .8, c: palette[(Math.random() * palette.length) | 0]
-    }));
-  };
-  const frame = () => {
-    if (!running) return;
-    ctx.clearRect(0, 0, w, h_);
-    const maxD = 140;
-    for (let i = 0; i < nodes.length; i++) {
-      const a = nodes[i];
-      a.x += a.vx; a.y += a.vy;
-      if (a.x < 0 || a.x > w) a.vx *= -1; if (a.y < 0 || a.y > h_) a.vy *= -1;
-      const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
-      if (dm < 160) { a.x += (a.x - mouse.x) * .0016; a.y += (a.y - mouse.y) * .0016; }
-      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 6.283); ctx.fillStyle = `rgba(${a.c},.85)`; ctx.fill();
-      for (let j = i + 1; j < nodes.length; j++) {
-        const b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
-        if (d < maxD) { ctx.strokeStyle = `rgba(${a.c},${(1 - d / maxD) * .32})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
-      }
-    }
-    raf = requestAnimationFrame(frame);
-  };
-  resize();
-  addEventListener("resize", () => { clearTimeout(resize.t); resize.t = setTimeout(resize, 150); });
-  addEventListener("pointermove", (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
-  document.addEventListener("visibilitychange", () => { running = !document.hidden; if (running) frame(); else cancelAnimationFrame(raf); });
-  frame();
-}
-
 /* ---------------------------------------------------------------- reveal, spy, progress, glow */
 export function startReveal() {
   const els = $$(".reveal");
@@ -92,7 +48,7 @@ export function setupTheme() {
   $("#themeBtn").addEventListener("click", () => {
     const next = root.dataset.theme === "dark" ? "light" : "dark";
     root.dataset.theme = next; safeStorage.set("theme", next);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next === "dark" ? "#070912" : "#f6f7fc");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next === "dark" ? "#0b0d12" : "#f5f2ea");
   });
 }
 
@@ -125,12 +81,13 @@ export function setupPalette({ ask, openChat }) {
   let items = [], sel = 0;
   const go = (id) => () => { $(id).scrollIntoView({ behavior: "smooth" }); };
   const base = [
-    { label: "Go to Work", hint: "section", run: go("#work") },
-    { label: "Go to Flagship case study", hint: "section", run: go("#case") },
-    { label: "Go to How I work (FDE)", hint: "section", run: go("#fde") },
+    { label: "Start the guided tour with ARI", hint: "ai", run: () => document.dispatchEvent(new CustomEvent("portfolio:tour", { detail: { chapter: "intro" } })) },
+    { label: "Go to What I've done", hint: "section", run: go("#experience") },
+    { label: "Go to the flagship J&J system", hint: "section", run: go("#case") },
+    { label: "Go to What I'm good at (skills)", hint: "section", run: go("#skills") },
+    { label: "Go to What I've built (projects)", hint: "section", run: go("#work") },
+    { label: "Go to How I work", hint: "section", run: go("#fde") },
     { label: "Go to Ask my AI", hint: "section", run: go("#ask") },
-    { label: "Go to Skills", hint: "section", run: go("#skills") },
-    { label: "Go to Experience", hint: "section", run: go("#experience") },
     { label: "Go to Contact", hint: "section", run: go("#contact") },
     { label: "Open chat with my AI", hint: "ai", run: () => openChat() },
     { label: "Download resume (PDF)", hint: "file", run: () => { const a = h("a", { href: "assets/Abhilash_Kurapati_AI_Engineer_Resume.pdf", download: "" }); a.click(); } },
