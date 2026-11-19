@@ -106,3 +106,17 @@ textarea:focus, input:focus { outline: none; border-color: var(--violet-2); box-
 .btn, .chip, .tab, .step, .suggest button { position: relative; }
 .btn > *, .chip > * { position: relative; z-index: 1; }
 .panel.is-active { animation: panelSwap .45s cubic-bezier(.2, .8, .2, 1); } @keyframes panelSwap { from { opacity: 0; transform: translateY(12px); } }
+
+/* ---------- calm overrides: overlays hide the page completely, panels are solid ---------- */
+.scrim { background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); animation: fadein .35s var(--ease) both; }
+.palette { background: color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); animation: fadein .25s var(--ease) both; }
+.palette-box { background: var(--surface); box-shadow: 0 40px 100px -30px rgba(0, 0, 0, .8); animation: pop .3s var(--ease) both; }
+.drawer { background: var(--bg); border-left: 1px solid var(--line-2); box-shadow: -40px 0 100px -40px rgba(0, 0, 0, .7); }
+.ai-hub { background: var(--surface); backdrop-filter: none; box-shadow: none; border-color: var(--line); border-radius: 28px; }
+.tabs { background: transparent; padding: 14px 14px 0; }
+@keyframes fadein { from { opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.98); } }
+.ripple { display: none; }
+.fab { box-shadow: var(--shadow); }
+.fab { background: var(--accent); color: var(--accent-ink); } .fab-ring { display: none; }
+@media (max-width: 600px) { .launcher { display: none; } .pill { padding: 7px 10px; font-size: 12.5px; } .pills { gap: 2px; } }

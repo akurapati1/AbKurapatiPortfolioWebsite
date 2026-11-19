@@ -1638,27 +1638,27 @@
     "intro": "Hi, I'm ARI, Abhilash's AI guide. I'll walk you through three things: what he has done, what he's genuinely good at, and what he has built. Only projects with real, public code made the cut. It takes about three minutes, and you can skip around any time.",
     "chapters": [
       {
-        "id": "intro",
+        "id": "intro", "short": "Hello",
         "label": "Hello",
         "blurb": "Meet your guide"
       },
       {
-        "id": "did",
+        "id": "did", "short": "Done",
         "label": "What he's done",
         "blurb": "Impact, roles and the flagship J&J system"
       },
       {
-        "id": "good",
+        "id": "good", "short": "Skills",
         "label": "What he's good at",
         "blurb": "Skills, with honest depth"
       },
       {
-        "id": "built",
+        "id": "built", "short": "Built",
         "label": "What he's built",
         "blurb": "Projects with real code"
       },
       {
-        "id": "contact",
+        "id": "contact", "short": "Contact",
         "label": "Say hello",
         "blurb": "Contact and next steps"
       }

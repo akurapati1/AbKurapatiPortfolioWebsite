@@ -33,10 +33,6 @@ export function startChrome() {
   menuBtn.addEventListener("click", () => { const o = navLinks.classList.toggle("open"); menuBtn.setAttribute("aria-expanded", String(o)); });
   links.forEach((a) => a.addEventListener("click", () => { navLinks.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); }));
 
-  if (matchMedia("(pointer: fine)").matches && !reducedMotion()) {
-    const g = $(".cursor-glow");
-    addEventListener("pointermove", (e) => { g.style.opacity = 1; g.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`; }, { passive: true });
-  }
   $("#year").textContent = new Date().getFullYear();
 }
 

@@ -71,27 +71,9 @@ export function scramble(el, ms = 700) {
 
 /** Section headings arrive word by word, kickers decode, reveal groups cascade. */
 export function setupReveal() {
-  // split h2 into words
-  $$(".section-head h2, .contact h2").forEach((h) => {
-    if (h.dataset.split) return;
-    h.dataset.split = "1"; h.setAttribute("aria-label", h.textContent);
-    const words = h.textContent.trim().split(/\s+/);
-    h.textContent = "";
-    words.forEach((w, i) => { const s = document.createElement("span"); s.className = "w"; s.setAttribute("aria-hidden", "true"); s.style.setProperty("--i", i); s.textContent = w; h.append(s, " "); });
-    h.classList.add("split");
-  });
-  // cascade delays for sibling reveals
-  const groups = new Map();
-  $$(".reveal").forEach((el) => { const p = el.parentElement; if (!groups.has(p)) groups.set(p, []); groups.get(p).push(el); });
-  groups.forEach((arr) => { if (arr.length > 1) arr.forEach((el, i) => el.style.setProperty("--d", `${Math.min(i, 8) * 70}ms`)); });
-
-  const targets = $$(".reveal, .section-head, .kicker");
-  if (!("IntersectionObserver" in window) || reducedMotion()) { targets.forEach((e) => e.classList.add("in")); return () => {}; }
-  const io = new IntersectionObserver((es) => es.forEach((e) => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add("in"); io.unobserve(e.target);
-    if (e.target.classList.contains("kicker")) scramble(e.target);
-  }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  // Calm reveal: content fades up once as it enters the viewport. No splitting, scrambling or blur.
+  const targets = $$(".reveal");
+  if (!("IntersectionObserver" in window) || reducedMotion()) { targets.forEach((e) => e.classList.add("in")); return; }
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin: "0px 0px -8% 0px" });
   targets.forEach((e) => io.observe(e));
-  return (root = document) => $$(".reveal:not(.in), .section-head:not(.in)", root).forEach((e) => io.observe(e));
 }
