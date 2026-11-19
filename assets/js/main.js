@@ -37,6 +37,7 @@ async function boot() {
   // ARI, the AI guide that travels the page and narrates the portfolio.
   $("#tourStart").addEventListener("click", () => tour("intro"));
   $("#tourBtn").addEventListener("click", () => tour("intro"));
+  $("#talkStart").addEventListener("click", () => document.dispatchEvent(new CustomEvent("portfolio:converse", { detail: { listen: true } })));
 
   // Scheduling link (set identity.scheduling.url in profile.json)
   const sch = profile.identity.scheduling;
@@ -57,7 +58,7 @@ async function boot() {
       if (inlineOnly) { selectTab("chat"); inline.focus(); } else drawerChat.focus();
     }
   });
-  createGuide(profile, { openChat: () => drawer.open() });
+  createGuide(profile, { openChat: () => drawer.open(), ask: (q) => store.send(q) });
   setupPalette({
     ask: (q) => { drawer.open(); store.send(q); },
     openChat: () => drawer.open()

@@ -41,7 +41,7 @@ Static-only preview (no API, built-in mode): `npm run serve:static` → http://l
 
 ## Highlights
 
-- **ARI, the AI guide** (`assets/js/modules/guide.js`): a robot that physically travels the page (spring physics, thruster trail, look-at eyes, pointing arm), spotlights each section and narrates it, optionally out loud. Three chapters: what I've done, what I'm good at, what I've built. The script is generated from `data/profile.json`, so new roles, skills and projects join the tour automatically. Keyboard: `←` `→` `Space` `Esc`.
+- **ARI, the AI guide** (`assets/js/modules/guide.js`, `voice.js`, `spoken.js`): on click ARI takes off from the hero, orbits the page and lands in a tour panel, then narrates three chapters (what I've done, what I'm good at, what I've built) with a spotlight on each section. Narration is spoken sentence by sentence with punctuation-sized pauses using the best English voice the browser offers. Visitors can interrupt at any time by typing or talking (live voice mode, Chrome/Edge) and ARI answers from the same grounded assistant as the chat. The script is generated from `data/profile.json`. Keys: `←` `→` `Space` `Esc`. Light theme is the default; dark is remembered once chosen.
 - **Curated projects**: only repos with real, public code are shown (`showcase: true` in `data/profile.json`); each card links to the repo and shows its codebase size. Entries without public code stay in the AI's knowledge base but are not displayed.
 - **Motion layer**: click ripples, 3D card tilt, magnetic buttons, word-by-word headings, decode-style labels, staggered reveals.
 - **No photos** anywhere on the site by design.

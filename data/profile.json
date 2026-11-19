@@ -1635,52 +1635,60 @@
   "guide": {
     "name": "ARI",
     "role": "Abhilash's AI guide",
-    "intro": "Hi, I'm ARI, Abhilash's AI guide. I'll walk you through three things: what he has done, what he's genuinely good at, and what he has built. Only projects with real, public code made the cut. It takes about three minutes, and you can skip around any time.",
+    "intro": "Hi there! I'm ARI, Abhilash's AI guide. Over the next few minutes, I'll show you three things: what he's done, what he's genuinely good at, and what he's built. And I only picked projects that have real, public code behind them. So, shall we? You can pause me, skip around, or interrupt with a question at any time.",
     "chapters": [
       {
-        "id": "intro", "short": "Hello",
+        "id": "intro",
+        "short": "Hello",
         "label": "Hello",
         "blurb": "Meet your guide"
       },
       {
-        "id": "did", "short": "Done",
+        "id": "did",
+        "short": "Done",
         "label": "What he's done",
         "blurb": "Impact, roles and the flagship J&J system"
       },
       {
-        "id": "good", "short": "Skills",
+        "id": "good",
+        "short": "Skills",
         "label": "What he's good at",
         "blurb": "Skills, with honest depth"
       },
       {
-        "id": "built", "short": "Built",
+        "id": "built",
+        "short": "Built",
         "label": "What he's built",
         "blurb": "Projects with real code"
       },
       {
-        "id": "contact", "short": "Contact",
+        "id": "contact",
+        "short": "Contact",
         "label": "Say hello",
         "blurb": "Contact and next steps"
       }
     ],
-    "impact": "Let's start with the numbers. The headline: Medical Impact Assessment reports at Johnson and Johnson went from two to three weeks down to under a minute, with human reviewers still in control.",
-    "impactMore": "Behind that: over one hundred thousand records through automated ML pipelines, five-plus orchestrated agent steps, and thirty-plus pull requests reviewed as a tech lead.",
+    "impact": "Let's start with the number that matters most. Medical reports at Johnson and Johnson used to take two to three weeks to produce. Abhilash's system now does it in under a minute. And a human reviewer still signs off on every single one.",
+    "impactMore": "A few more numbers. Over a hundred thousand records flow through automated pipelines. Five or more agent steps work together on every report. And across three open-source agent platforms, there are about twenty-five thousand lines of code.",
     "experience": {
-      "pozent": "Now. Abhilash is an Associate AI Engineer at Pozent, working on enterprise AI for Johnson and Johnson. He architected a Google Cloud agentic system for medical reporting, built the data pipelines under it, and runs it on GKE with monitoring and CI/CD.",
-      "slu": "Before that, he was Technical Lead for Open Source with Saint Louis University. He led four undergraduates through ten-plus sprints to turn two legacy research tools into one analytics platform, reviewing over thirty pull requests along the way.",
-      "highradius": "His first production machine learning was an internship at HighRadius: forecasting late invoice payments on fifty thousand-plus invoices, deployed as a Flask service."
+      "pozent": "Right now, Abhilash is an Associate AI Engineer at Pozent, working on enterprise AI for Johnson and Johnson. He designed an agentic system on Google Cloud that automates medical reporting. He built the data pipelines underneath it. And he runs it all on Kubernetes, with monitoring and automated deployments.",
+      "slu": "Before that, he was the technical lead for Open Source with Saint Louis University. He guided four undergraduates through more than ten sprints, merged two legacy research tools into a single platform, and reviewed over thirty pull requests along the way.",
+      "highradius": "And this is where it started. An internship at HighRadius, building a model that predicts late invoice payments. It was trained on more than fifty thousand invoices, and shipped as a Flask service. His first real taste of production machine learning."
     },
-    "education": "Education: a Master's in Computer Science from Saint Louis University with a 3.94 GPA, and an engineering degree in Electronics and Communication.",
-    "case": "Here's the flagship system, drawn out. Watch the lanes light up as I go.",
+    "education": "On the education side, he has a Master's in Computer Science from Saint Louis University, with a 3.94 GPA, and an engineering degree in Electronics and Communication.",
+    "case": "Now, the flagship system. I'll walk you through how it works, lane by lane.",
     "lanes": {
-      "data": "First, the data lane. Pub/Sub and Dataflow ingest events, then Dataproc and BigQuery make everything model-ready, orchestrated by Cloud Composer across two environments.",
-      "agents": "Then the agent lane: retrieval pulls the right evidence for each section, five-plus agent steps reason and draft, and validators check the output before any human sees it.",
-      "trust": "The trust lane is the point. A reviewer edits and approves, and those edits become labeled feedback that improves prompts and retrieval. Then PDF and Word reports are delivered.",
-      "ops": "And operations: GKE, CI/CD, versioned prompts and models, plus dashboards watching latency, errors and output quality."
+      "data": "First, the data lane. Events come in through Pub/Sub and Dataflow. Then Dataproc and BigQuery clean everything up and get it ready for the models. All of it orchestrated by Cloud Composer, across two environments.",
+      "agents": "Next, the agent lane. A retrieval step pulls the right evidence for each section. Then five or more agent steps reason, draft, and assemble the report. And before any human sees it, validators check the output.",
+      "trust": "This lane is the heart of it. A human reviewer edits and approves every report. Those edits become labelled feedback, which improves the prompts and the retrieval over time. Then the final PDF and Word documents are delivered.",
+      "ops": "And finally, operations. It all runs on Kubernetes, with automated deployments, versioned prompts and models, and dashboards that watch latency, errors, and the quality of the output."
     },
-    "skillsIntro": "On to what he's good at. These levels are deliberate: core means shipped in real work, working means comfortable, familiar means exposure only.",
-    "builtIntro": "Now what he's built. I checked the code behind every card here. Tutorials and empty repos were left out on purpose.",
-    "builtOutro": "There are a few more worth opening below, and every card links to the real repository.",
-    "closing": "That's the tour. If you're hiring for AI engineering or forward deployed work, the quickest next step is a message or a call. Or ask me anything, and I'll answer from his verified profile."
+    "skillsIntro": "Okay, on to the skills. A quick note on the labels. Core means he's shipped it in real work. Working means he's comfortable with it. And familiar just means exposure. I'd rather be honest than list a hundred buzzwords.",
+    "builtIntro": "And now, the projects. I've actually checked the code behind every one of these. No tutorials, no empty repos. Pick any from the list at any time, or just let me walk you through them.",
+    "builtOutro": "There are a few smaller ones down here, too. Every card links straight to the repository, so you can read the code yourself.",
+    "closing": "And that's the tour! If you're hiring for AI engineering, or forward deployed work, the quickest next step is to send a message, or give him a call. Or, ask me anything, right now. You can type, or tap the mic and just talk to me.",
+    "greet": "Hi! I'm ARI. Ask me anything about Abhilash: his work, his skills, or how he'd fit a role.",
+    "greetVoice": "Hi! I'm ARI. Ask me anything about Abhilash, his work, his skills, or how he'd fit a role. Go ahead, I'm listening.",
+    "finish": "That's everything. If anything caught your eye, just ask me."
   }
 }
