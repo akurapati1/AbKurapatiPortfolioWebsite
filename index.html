@@ -40,9 +40,6 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="aura" aria-hidden="true"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <header class="nav" id="nav">
@@ -52,10 +49,9 @@
         <span class="brand-name">Abhilash<span class="dim"> Kurapati</span></span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#experience" data-spy="experience">Did</a>
-        <a href="#skills" data-spy="skills">Good at</a>
-        <a href="#work" data-spy="work">Built</a>
-        <a href="#fde" data-spy="fde">How I work</a>
+        <a href="#experience" data-spy="experience">Experience</a>
+        <a href="#skills" data-spy="skills">Skills</a>
+        <a href="#work" data-spy="work">Projects</a>
         <a href="#ask" data-spy="ask">Ask my AI</a>
         <a href="#contact" data-spy="contact">Contact</a>
       </nav>
@@ -72,34 +68,32 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="pulse"></span><span id="heroEyebrow">Open to AI Engineer &amp; Forward Deployed Engineer roles</span></p>
-          <h1 id="heroHeadline">I turn messy enterprise workflows into <em>agentic AI</em> that ships.</h1>
-          <p class="typed-line"><span class="prompt">&gt;</span><span id="typed" aria-live="off">Agentic AI systems, built to ship.</span><span class="caret"></span></p>
-          <p class="lede" id="heroSub">Associate AI Engineer on enterprise AI for Johnson &amp; Johnson.</p>
-          <div class="hero-cta">
-            <button class="btn btn-primary btn-tour" type="button" id="tourStart"><span class="play"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span> Take the guided tour</button>
-            <button class="btn btn-ghost" type="button" data-open-chat>Ask my AI</button>
-            <a class="btn btn-ghost" href="assets/Abhilash_Kurapati_AI_Engineer_Resume.pdf" download>Resume</a>
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="pulse"></span><span id="heroEyebrow">Open to AI Engineer &amp; Forward Deployed Engineer roles</span></p>
+            <h1 id="heroHeadline">I turn messy enterprise workflows into <em>agentic AI</em> that ships.</h1>
+            <p class="lede" id="heroSub"></p>
+            <div class="hero-cta">
+              <button class="btn btn-primary btn-tour" type="button" id="tourStart"><span class="play"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span> Take the guided tour</button>
+              <a class="btn btn-ghost" href="assets/Abhilash_Kurapati_AI_Engineer_Resume.pdf" download>Resume</a>
+            </div>
+            <div class="hero-links">
+              <a href="https://github.com/akurapati1" target="_blank" rel="noopener">GitHub</a><span>·</span>
+              <a href="https://www.linkedin.com/in/kurapati-abhilash/" target="_blank" rel="noopener">LinkedIn</a><span>·</span>
+              <button class="link-btn" type="button" data-open-chat style="font-weight:500;text-decoration:none;color:inherit">Ask my AI</button>
+            </div>
           </div>
-          <div class="hero-links">
-            <a href="tel:+16172568369">+1 617-256-8369</a><span>·</span>
-            <a href="https://github.com/akurapati1" target="_blank" rel="noopener">GitHub</a><span>·</span>
-            <a href="https://www.linkedin.com/in/kurapati-abhilash/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
+          <aside class="stage" id="stage" aria-label="Meet ARI, the AI guide">
+            <div class="stage-cap"><b>Hi, I'm ARI</b><span>Your guide to this portfolio</span></div>
+          </aside>
         </div>
-
-        <aside class="stage" id="stage" aria-label="Meet ARI, the AI guide">
-          <span class="ring r1" aria-hidden="true"><i></i></span><span class="ring r2" aria-hidden="true"><i></i></span><span class="ring r3" aria-hidden="true"></span>
-          <p class="stage-label">ARI · AI portfolio guide</p>
-          <div class="missions" id="missions"></div>
-        </aside>
+        <div class="paths" id="missions" aria-label="Choose a path"></div>
       </div>
     </section>
 
     <!-- IMPACT -->
-    <section class="section tight" id="impact" aria-labelledby="impactTitle">
+    <section class="section" id="impact" style="padding-top:0" aria-labelledby="impactTitle">
       <div class="wrap">
         <h2 class="sr-only" id="impactTitle">Impact in numbers</h2>
         <div class="metrics" id="metrics"></div>
@@ -115,48 +109,49 @@
           <div class="id-role">AI Engineer · Forward Deployed Engineer</div>
           <dl class="id-grid">
             <div><dt>Base</dt><dd>New Jersey, USA</dd></div>
-            <div><dt>Focus</dt><dd>Agentic AI · RAG · MLOps</dd></div>
             <div><dt>Cloud</dt><dd>Google Cloud</dd></div>
+            <div><dt>Focus</dt><dd>Agentic AI, RAG, MLOps</dd></div>
             <div><dt>Status</dt><dd class="ok"><span class="pulse"></span> Open to roles</dd></div>
           </dl>
-          <div class="id-code" aria-hidden="true"><span id="idTick">agent.status = "ready"</span></div>
         </div>
         <div class="about-copy reveal">
-          <p class="kicker">Who</p>
-          <h3 id="aboutTitle">Two hats. One goal: AI that people actually use.</h3>
+          <p class="kicker">Who I am</p>
+          <h3 id="aboutTitle">AI that people actually use.</h3>
           <p class="lede" id="aboutIntro"></p>
-          <div class="summary" id="aboutSummary" style="margin-top:18px"></div>
-          <div class="hat-grid" id="hats"></div>
+          <div class="summary" id="aboutSummary"></div>
         </div>
       </div>
     </section>
 
     <!-- 01 WHAT I'VE DONE -->
-    <section class="section" id="experience" aria-labelledby="expTitle">
+    <section class="section alt" id="experience" aria-labelledby="expTitle">
       <div class="wrap">
         <div class="chap reveal">
-          <div><p class="chap-n">01 · What I've done</p><h2 id="expTitle">From campus lab to production AI.</h2></div>
-          <p class="lede">Three roles, one thread: take a messy, slow, human-heavy process and make it fast without removing the human.</p>
+          <p class="chap-n">01 · What I've done</p>
+          <h2 id="expTitle">From campus lab to production AI.</h2>
+          <p class="lede">Pick a role. Each one is the same story: take a slow, human-heavy process and make it fast without removing the human.</p>
         </div>
-        <div class="timeline" id="timeline"></div>
+        <div class="tabs-h" id="expTabs" role="tablist" aria-label="Roles"></div>
+        <div id="expPanel" role="tabpanel"></div>
         <div class="edu" id="education"></div>
       </div>
     </section>
 
     <!-- FLAGSHIP -->
-    <section class="section" id="case" aria-labelledby="caseTitle" style="padding-top:0">
+    <section class="section" id="case" aria-labelledby="caseTitle">
       <div class="wrap"><div id="caseStudy" class="reveal"></div></div>
     </section>
 
     <!-- 02 WHAT I'M GOOD AT -->
-    <section class="section" id="skills" aria-labelledby="skillsTitle">
+    <section class="section alt" id="skills" aria-labelledby="skillsTitle">
       <div class="wrap">
         <div class="chap reveal">
-          <div><p class="chap-n">02 · What I'm good at</p><h2 id="skillsTitle">Skills, with honest depth.</h2></div>
+          <p class="chap-n">02 · What I'm good at</p>
+          <h2 id="skillsTitle">Skills, with honest depth.</h2>
           <p class="lede" id="skillsNote"></p>
         </div>
-        <div class="legend reveal" id="skillLegend"></div>
-        <div class="skills" id="skills-grid"></div>
+        <div class="tabs-h" id="skillTabs" role="tablist" aria-label="Skill areas"></div>
+        <div id="skillPanel" role="tabpanel"></div>
       </div>
     </section>
 
@@ -164,25 +159,27 @@
     <section class="section" id="work" aria-labelledby="workTitle">
       <div class="wrap">
         <div class="chap reveal">
-          <div><p class="chap-n">03 · What I've built</p><h2 id="workTitle">Projects with real code behind them.</h2></div>
-          <p class="lede">Every card links to a public repository I checked. Tutorial repos and half-starts are deliberately left out.</p>
+          <p class="chap-n">03 · What I've built</p>
+          <h2 id="workTitle">Projects with real code behind them.</h2>
+          <p class="lede">Choose a project to read about it. Every one links to a public repository I checked.</p>
         </div>
-        <div class="filters reveal" id="projectFilters" role="tablist" aria-label="Filter projects"></div>
-        <div class="projects" id="projects"></div>
+        <div class="proj-wrap">
+          <div class="proj-list" id="projList" role="tablist" aria-label="Projects"></div>
+          <div id="projDetail" role="tabpanel"></div>
+        </div>
         <p class="more-h" id="moreTitle">Also on GitHub</p>
         <div class="more-grid" id="moreGrid"></div>
       </div>
     </section>
 
     <!-- HOW I WORK -->
-    <section class="section" id="fde" aria-labelledby="fdeTitle">
+    <section class="section alt" id="fde" aria-labelledby="fdeTitle">
       <div class="wrap">
         <div class="chap reveal">
-          <div><p class="chap-n">04 · How I work</p><h2 id="fdeTitle">I find the pain, put AI exactly there, and stay until it works.</h2></div>
-          <p class="lede" id="fdeIntro"></p>
+          <p class="chap-n">04 · How I work</p>
+          <h2 id="fdeTitle">Find the pain. Put AI exactly there. Stay until it works.</h2>
         </div>
         <ol class="steps reveal" id="fdeSteps"></ol>
-        <div class="strengths reveal" id="fdeStrengths"></div>
       </div>
     </section>
 

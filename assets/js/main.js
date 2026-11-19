@@ -2,9 +2,9 @@ import { $, h } from "./util.js";
 import { probe, net } from "./api.js";
 import { createBrain } from "./brain.js";
 import { createChatStore, mountChat } from "./modules/chat.js";
-import { renderHero, renderMetrics, renderAbout, renderCase, renderProjects, renderFDE, renderSkills, renderExperience, startIdCard } from "./modules/render.js";
+import { renderHero, renderMetrics, renderAbout, renderCase, renderProjects, renderFDE, renderSkills, renderExperience } from "./modules/render.js";
 import { createGuide } from "./modules/guide.js";
-import { setupRipple, setupTilt, setupMagnetic, setupWarp, setupReveal } from "./modules/fx.js";
+import { setupReveal } from "./modules/fx.js";
 import { setupFit, setupDiscover, setupTabs } from "./modules/aitools.js";
 import { setupContact } from "./modules/contact.js";
 import { startChrome, setupTheme, setupDrawer, setupPalette } from "./modules/effects.js";
@@ -32,8 +32,7 @@ async function boot() {
   const tour = (chapter) => document.dispatchEvent(new CustomEvent("portfolio:tour", { detail: { chapter } }));
   renderHero(profile, { onMission: tour }); renderMetrics(profile); renderAbout(profile); renderExperience(profile); renderCase(profile);
   renderSkills(profile); renderProjects(profile); renderFDE(profile);
-  startIdCard();
-  setupReveal(); setupRipple(); setupTilt(); setupMagnetic(); setupWarp();
+  setupReveal();
 
   // ARI, the AI guide that travels the page and narrates the portfolio.
   $("#tourStart").addEventListener("click", () => tour("intro"));
