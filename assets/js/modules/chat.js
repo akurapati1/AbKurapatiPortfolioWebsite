@@ -91,6 +91,7 @@ export function createChatStore({ profile, brain }) {
       notify(msg);
       views.forEach((v) => v.setBusy(false));
     }
+    return msg; // lets the voice guide (ARI) read the answer out
   }
 
   return {

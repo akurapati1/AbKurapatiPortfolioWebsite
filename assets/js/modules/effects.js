@@ -40,11 +40,13 @@ export function startChrome() {
 export function setupTheme() {
   const root = document.documentElement;
   const saved = safeStorage.get("theme");
-  root.dataset.theme = saved === "light" ? "light" : "dark"; // dark is the signature look; light is opt-in
+  const paint = (t) => { root.dataset.theme = t; document.querySelector('meta[name="theme-color"]')?.setAttribute("content", t === "dark" ? "#0c0e13" : "#f6f3ec"); };
+  paint(saved === "dark" ? "dark" : "light"); // light is the default; dark is opt-in and remembered
   $("#themeBtn").addEventListener("click", () => {
     const next = root.dataset.theme === "dark" ? "light" : "dark";
-    root.dataset.theme = next; safeStorage.set("theme", next);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next === "dark" ? "#0b0d12" : "#f5f2ea");
+    // cross-fade every colour for a moment so the switch is a smooth transition, not a flash
+    if (!reducedMotion()) { root.classList.add("theme-fade"); setTimeout(() => root.classList.remove("theme-fade"), 650); }
+    paint(next); safeStorage.set("theme", next);
   });
 }
 
