@@ -371,3 +371,27 @@ body.touring .fab, body.touring .launcher { opacity: 0; pointer-events: none; tr
   .console { padding-top: 18px; } .con-ask { flex-basis: 100%; }
 }
 @media (max-width: 600px) { .console .con-top { padding-left: 76px; min-height: 22px; } }
+
+/* ---------- Calendly booking (inline section + pop-up) ---------- */
+.book-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.book-points { margin: 28px 0 32px; display: grid; gap: 12px; } .book-points li { position: relative; padding-left: 26px; color: var(--muted); } .book-points li::before { content: ""; position: absolute; left: 0; top: .8em; width: 12px; height: 1.5px; background: var(--accent); }
+.book-inline, .book-body { position: relative; min-height: 640px; border-radius: 28px; border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
+.book-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity .5s var(--ease); background: var(--surface); }
+.book-inline.ready .book-frame, .book-body.ready .book-frame { opacity: 1; }
+.book-skel { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; color: var(--dim); font-size: 14.5px; transition: opacity .4s; }
+.book-skel i { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line-2); border-top-color: var(--accent); animation: bookspin 1s linear infinite; }
+.book-inline.ready .book-skel, .book-body.ready .book-skel { opacity: 0; pointer-events: none; }
+@keyframes bookspin { to { transform: rotate(360deg); } }
+dialog.book { width: min(860px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 24px 24px 18px; border-radius: 30px; border: 1px solid var(--line-2); background: var(--bg); color: var(--text); box-shadow: 0 50px 120px -30px rgba(0, 0, 0, .6); margin: auto; }
+dialog.book[open] { animation: pop .35s var(--ease) both; }
+dialog.book::backdrop { background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); animation: fadein .3s var(--ease) both; }
+.book-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; } .book-head h2 { font-size: clamp(24px, 3vw, 32px); }
+dialog.book .book-body { min-height: min(640px, calc(100dvh - 190px)); }
+.book-foot { margin-top: 14px; font-size: 13.5px; color: var(--dim); } .book-foot a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 1020px) { .book-grid { grid-template-columns: minmax(0, 1fr); } .book-inline { min-height: 700px; } }
+@media (max-width: 600px) { dialog.book { padding: 16px 14px 12px; border-radius: 24px; } }
+dialog.book { overflow: auto; max-height: calc(100dvh - 32px); }
+dialog.book .book-body { min-height: min(600px, calc(100dvh - 230px)); }
+dialog.book[open] { position: fixed; inset: 0; margin: auto; height: min(780px, calc(100dvh - 32px)); display: flex; flex-direction: column; animation: fadein .35s var(--ease) both; }
+dialog.book .book-body { flex: 1 1 auto; min-height: 0; }
+dialog.book .book-head, dialog.book .book-foot { flex: none; }

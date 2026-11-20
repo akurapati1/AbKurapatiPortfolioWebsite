@@ -13,7 +13,7 @@ const list = (a) => (a.length <= 1 ? a.join("") : a.slice(0, -1).join(", ") + ",
 const firstSentences = (t, n) => (String(t).match(/[^.!?]+[.!?]+/g) || [String(t)]).slice(0, n).join(" ").trim();
 const clean = (t) => String(t).replace(/\*\*[^*]+\*\*\n?/g, "").replace(/Stack:.*?(?=\.\s|$)/g, "").replace(/\s+/g, " ").trim();
 
-export function spokenAnswer(q, profile, msg) {
+export function spokenAnswer(q, profile, msg, { booking = false } = {}) {
   const G = profile.guide, id = profile.identity, text = String(q || "").trim(), low = text.toLowerCase();
   const reply = (t, cta = []) => ({ text: t, cta });
   const contact = [{ label: "Open the contact form", action: "contact" }, { label: "Email", href: `mailto:${id.email}` }, { label: "Call", href: `tel:${id.phoneHref}` }];
@@ -23,6 +23,11 @@ export function spokenAnswer(q, profile, msg) {
   if (/\b(who|what) are you\b/.test(low)) return reply("I'm ARI, a guide built into Abhilash's portfolio. I only know what's in his verified profile, so if I don't know something, I'll tell you instead of guessing.");
   if (/\b(job description|fit|good match|right for (this|our)|suitable)\b/.test(low))
     return reply("For an honest fit check, paste the job description into the job fit tool in the Ask section. It lists the evidence, and the gaps too. Want me to take you there?", [{ label: "Open the job fit check", action: "fit" }]);
+
+  if (/\b(book|schedule|meeting|meet|appointment|slot|availab\w*|calendar|calendly|intro call|set up a call)\b/.test(low))
+    return booking
+      ? reply("Sure! Pick any time that suits you, and it goes straight into his calendar. It's a relaxed twenty-minute intro call.", [{ label: "Pick a time", action: "book" }])
+      : reply("He hasn't set up online booking yet. The quickest route is a message through the contact form, and he'll reply with some times.", [{ label: "Open the contact form", action: "contact" }]);
 
   const intent = classifyIntent(text);
   switch (intent) {

@@ -59,7 +59,7 @@
         <button class="icon-btn" id="tourBtn" type="button" aria-label="Start the guided tour with ARI"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>&nbsp;Tour</button>
         <button class="icon-btn" id="paletteBtn" type="button" aria-label="Open command menu" title="Command menu (Ctrl/⌘ K)"><span class="kbd">⌘K</span></button>
         <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle light and dark theme"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
-        <a class="btn btn-primary btn-sm nav-cta" href="#contact">Hire me</a>
+        <a class="btn btn-primary btn-sm nav-cta" id="navCta" href="#contact">Hire me</a>
         <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
     </div>
@@ -184,6 +184,24 @@
       </div>
     </section>
 
+    <!-- BOOK A CALL (shown only when identity.scheduling.url is set) -->
+    <section class="section" id="book" aria-labelledby="bookTitle">
+      <div class="wrap book-grid">
+        <div class="chap reveal" style="margin-bottom:0">
+          <p class="chap-n">05 · Let's talk</p>
+          <h2 id="bookTitle">Pick a time that suits you.</h2>
+          <p class="lede">A relaxed 20-minute intro call. Bring a role you're hiring for, or a workflow that hurts, and we'll work out whether AI can help.</p>
+          <ul class="book-points">
+            <li>20 minutes, no preparation needed</li>
+            <li>Times are shown in your own time zone</li>
+            <li>You'll get a calendar invite straight away</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" type="button" data-book>Open in a pop-up</button>
+        </div>
+        <div class="book-inline reveal" id="bookInline"><div class="book-skel" aria-hidden="true"><i></i><span>Loading the calendar…</span></div></div>
+      </div>
+    </section>
+
     <!-- ASK MY AI -->
     <section class="section" id="ask" aria-labelledby="askTitle">
       <div class="wrap">
@@ -247,7 +265,7 @@
             <li><a class="contact-row" href="https://www.linkedin.com/in/kurapati-abhilash/" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></span><span><strong>LinkedIn</strong><small>/in/kurapati-abhilash</small></span></a></li>
             <li><a class="contact-row" href="https://github.com/akurapati1" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></span><span><strong>GitHub</strong><small>github.com/akurapati1</small></span></a></li>
           </ul>
-          <a class="btn btn-primary schedule-btn" id="scheduleBtn" href="#" target="_blank" rel="noopener" hidden>Book a 20-minute intro call</a>
+          <button class="btn btn-primary schedule-btn" id="scheduleBtn" type="button" hidden>Book a 20-minute intro call</button>
           <div class="note-card"><strong>Rather ask first?</strong> <button class="link-btn" type="button" data-open-chat>Ask my AI</button>: it can answer most questions instantly and hand you off to the form.</div>
         </div>
 
@@ -312,6 +330,15 @@
   <noscript><div class="noscript"><p><strong>Abhilash Kurapati</strong>, AI Engineer &amp; Forward Deployed Engineer. GCP-native agentic AI, RAG, MLOps. Cut medical report generation at Johnson &amp; Johnson from 2–3 weeks to under a minute.</p><p>Email <a href="mailto:abhilash.kurapati1301@gmail.com">abhilash.kurapati1301@gmail.com</a> · <a href="tel:+16172568369">+1 617-256-8369</a> · <a href="https://github.com/akurapati1">GitHub</a> · <a href="assets/Abhilash_Kurapati_AI_Engineer_Resume.pdf">Resume (PDF)</a></p><p>Enable JavaScript to use the interactive sections and the AI assistant.</p></div></noscript>
 
   <!-- ARI: the AI guide (built by assets/js/modules/guide.js) -->
+  <dialog class="book" id="bookModal" aria-labelledby="bookModalTitle">
+    <div class="book-head">
+      <div><p class="chap-n" style="margin:0 0 6px">Book a call</p><h2 id="bookModalTitle">Pick a time</h2></div>
+      <button class="icon-btn book-x" type="button" aria-label="Close the scheduler">✕</button>
+    </div>
+    <div class="book-body"><div class="book-skel" aria-hidden="true"><i></i><span>Loading the calendar…</span></div></div>
+    <p class="book-foot">Trouble loading? <a class="book-fallback" href="#" target="_blank" rel="noopener">Open the scheduler in a new tab</a>.</p>
+  </dialog>
+
   <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

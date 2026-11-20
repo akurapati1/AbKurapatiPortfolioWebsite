@@ -4,6 +4,7 @@ import { createBrain } from "./brain.js";
 import { createChatStore, mountChat } from "./modules/chat.js";
 import { renderHero, renderMetrics, renderAbout, renderCase, renderProjects, renderFDE, renderSkills, renderExperience } from "./modules/render.js";
 import { createGuide } from "./modules/guide.js";
+import { createBooking } from "./modules/booking.js";
 import { setupReveal } from "./modules/fx.js";
 import { setupFit, setupDiscover, setupTabs } from "./modules/aitools.js";
 import { setupContact } from "./modules/contact.js";
@@ -39,9 +40,8 @@ async function boot() {
   $("#tourBtn").addEventListener("click", () => tour("intro"));
   $("#talkStart").addEventListener("click", () => document.dispatchEvent(new CustomEvent("portfolio:converse", { detail: { listen: true } })));
 
-  // Scheduling link (set identity.scheduling.url in profile.json)
-  const sch = profile.identity.scheduling;
-  if (sch?.url) { const b = $("#scheduleBtn"); b.href = sch.url; b.textContent = sch.label || "Book a call"; b.hidden = false; }
+  // Calendly booking: switched on by identity.scheduling.url in profile.json
+  const booking = createBooking(profile);
 
   const brain = createBrain(profile);
   const contact = setupContact();
@@ -58,10 +58,11 @@ async function boot() {
       if (inlineOnly) { selectTab("chat"); inline.focus(); } else drawerChat.focus();
     }
   });
-  createGuide(profile, { openChat: () => drawer.open(), ask: (q) => store.send(q) });
+  createGuide(profile, { openChat: () => drawer.open(), ask: (q) => store.send(q), booking });
   setupPalette({
     ask: (q) => { drawer.open(); store.send(q); },
-    openChat: () => drawer.open()
+    openChat: () => drawer.open(),
+    book: booking.enabled ? () => booking.open() : null
   });
 
   // Reflect backend capabilities in the UI once the probe settles.
