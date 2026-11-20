@@ -74,7 +74,7 @@ export function setupDrawer({ onOpen }) {
 }
 
 /* ---------------------------------------------------------------- command palette */
-export function setupPalette({ ask, openChat }) {
+export function setupPalette({ ask, openChat, book }) {
   const root = $("#palette"), input = $("#paletteInput"), list = $("#paletteList");
   let items = [], sel = 0;
   const go = (id) => () => { $(id).scrollIntoView({ behavior: "smooth" }); };
@@ -86,6 +86,7 @@ export function setupPalette({ ask, openChat }) {
     { label: "Go to What I've built (projects)", hint: "section", run: go("#work") },
     { label: "Go to How I work", hint: "section", run: go("#fde") },
     { label: "Go to Ask my AI", hint: "section", run: go("#ask") },
+    ...(book ? [{ label: "Book a call with Abhilash", hint: "calendar", run: book }] : []),
     { label: "Go to Contact", hint: "section", run: go("#contact") },
     { label: "Open chat with my AI", hint: "ai", run: () => openChat() },
     { label: "Download resume (PDF)", hint: "file", run: () => { const a = h("a", { href: "assets/Abhilash_Kurapati_AI_Engineer_Resume.pdf", download: "" }); a.click(); } },

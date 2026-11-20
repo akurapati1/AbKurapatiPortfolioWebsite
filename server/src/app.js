@@ -58,6 +58,7 @@ export function createApp({ config, mailer, llm, kb, logger = console }) {
           "font-src": ["'self'", "https://fonts.gstatic.com", "data:"],
           "img-src": ["'self'", "data:"],
           "connect-src": ["'self'"],
+          "frame-src": ["https://calendly.com"], // Calendly scheduler embed
           "frame-ancestors": ["'none'"]
         }
       },

@@ -53,7 +53,7 @@ Submit the form once from your phone. The email arrives with subject `[Portfolio
 | `SEND_CONFIRMATION=true` | Sends the visitor an automatic "got your message" email (off by default: can be abused to mail strangers) |
 | `MESSAGE_LOG_PATH=./data/messages.jsonl` | Also saves each submission to a file as a backup (note: most free hosts wipe disks on redeploy) |
 | `RATE_CONTACT=5` | Max submissions per IP per hour |
-| Calendar link | Put your Calendly/Cal.com URL in `data/profile.json` → `identity.scheduling.url` and a "Book a call" button appears |
+| Calendar link | Put your Calendly URL (e.g. `https://calendly.com/you/intro-call`) in `data/profile.json` → `identity.scheduling.url`. That turns on the nav "Book a call" button, an inline scheduler section, a pop-up, the command-menu shortcut and ARI's booking answers. Leave it empty to hide all of it. |
 
 ## Troubleshooting
 | Symptom | Fix |

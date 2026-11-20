@@ -42,7 +42,7 @@ const say_ = (t) => String(t).replace(/&/g, "and");
 const spokenCode = (c) => { const m = /(\d+)k\+ lines/.exec(c || ""); return m ? `It's more than ${m[1]} thousand lines of code.` : ""; };
 const cutAtSentence = (t, max) => { if (t.length <= max) return t; const cut = t.slice(0, max); const i = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("? "), cut.lastIndexOf("! ")); return (i > 120 ? cut.slice(0, i + 1) : cut.replace(/\s+\S*$/, "") + "…"); };
 
-export function createGuide(profile, { openChat, ask } = {}) {
+export function createGuide(profile, { openChat, ask, booking } = {}) {
   const G = profile.guide;
   const reduce = reducedMotion();
   const voice = createVoice();
@@ -256,7 +256,7 @@ export function createGuide(profile, { openChat, ask } = {}) {
 
     st.push({
       ch: "contact", target: "#contact .contact-list", say: G.closing, mood: "happy", tag: "Say hello",
-      cta: [{ label: "Message Abhilash", action: () => { stop(); $("#cName")?.focus(); } }, { label: "Resume (PDF)", href: profile.identity.resume, download: true }, { label: "Ask ARI something", action: () => openAsk() }]
+      cta: [...(booking?.enabled ? [{ label: "Book a call", action: () => { stop(); booking.open(); } }] : []), { label: "Message Abhilash", action: () => { stop(); $("#cName")?.focus(); } }, { label: "Resume (PDF)", href: profile.identity.resume, download: true }, { label: "Ask ARI something", action: () => openAsk() }]
     });
     return st;
   }
@@ -462,7 +462,7 @@ export function createGuide(profile, { openChat, ask } = {}) {
     try { msg = await ask?.(q); } catch { /* fall through */ }
     if (my !== token) return;
     // live agent answers are already conversational; offline retrieval is rewritten to sound spoken
-    const reply = msg?.mode === "llm" ? { text: plain(msg.text), cta: [] } : spokenAnswer(q, profile, msg);
+    const reply = msg?.mode === "llm" ? { text: plain(msg.text), cta: [] } : spokenAnswer(q, profile, msg, { booking: !!booking?.enabled });
     let answer = reply.text || "Hmm, I couldn't find that. You can message Abhilash directly and he'll answer personally.";
     const long = answer.length > 620; if (long) answer = cutAtSentence(answer, 620);
     nameLbl.textContent = "ARI · answering"; input.disabled = false;
@@ -482,6 +482,7 @@ export function createGuide(profile, { openChat, ask } = {}) {
     const go = {
       contact: () => { stop(); $("#contact")?.scrollIntoView({ behavior: "smooth" }); setTimeout(() => $("#cName")?.focus({ preventScroll: true }), 700); },
       chat: () => { openChat?.(); },
+      book: () => { stop(); booking?.open(); },
       fit: () => { stop(); $("#ask")?.scrollIntoView({ behavior: "smooth" }); document.getElementById("tab-fit")?.click(); },
       case: () => { stop(); $("#case")?.scrollIntoView({ behavior: "smooth" }); },
       fde: () => { stop(); $("#fde")?.scrollIntoView({ behavior: "smooth" }); }
